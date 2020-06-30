@@ -57,6 +57,11 @@ markdownTemplate =
         |> Result.withDefault blank
 ```
 
+## In progress
+
+- [ ] ordered list
+- [ ] tables
+
 ## Templates
 
 Actors make up ideal components that can be used on a template.

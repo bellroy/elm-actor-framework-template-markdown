@@ -26,8 +26,6 @@ module Framework.Template.Markdown exposing
 
 -}
 
-import Dict exposing (Dict)
-import Framework.Actor exposing (Pid)
 import Framework.Template exposing (ActorElement, Node)
 import Framework.Template.Components exposing (Components)
 import Framework.Template.Markdown.Internal.MarkdownTemplate as MarkdownTemplate

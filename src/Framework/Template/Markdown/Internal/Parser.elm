@@ -44,6 +44,7 @@ parserBlockToTemplateNode components block =
             parserBlockUnorderedListToTemplateNode components listItems
 
         Block.OrderedList index listOfListOfInline ->
+            -- @todo
             Nothing
 
         Block.BlockQuote children ->
@@ -55,20 +56,29 @@ parserBlockToTemplateNode components block =
         Block.Paragraph children ->
             parserBlockParagraphToTemplateNode components children
 
-        -- Block.Table
-        --         (List
-        --             { label : List Inline
-        --             , alignment : Maybe Alignment
-        --             }
-        --         )
-        --         (List (List Inline))
-        -- Block.CodeBlock
-        --         { body : String
-        --         , language : Maybe String
-        --         }
-        -- Block.ThematicBreak
-        _ ->
+        Block.Table ->
+            -- @todo
             Nothing
+
+        Block.CodeBlock { body, language } ->
+            parserBlockCodeblockToTemplateNode body language
+
+        Block.ThematicBreak ->
+            Nothing
+
+
+parserBlockCodeblockToTemplateNode :
+    String
+    -> Maybe String
+    -> Template.Node appActors
+parserBlockCodeblockToTemplateNode body maybeLanguage =
+    Template.Element "code"
+        [ ( "data-language"
+          , Maybe.withDefault "" maybeLanguage
+          )
+        ]
+        [ Template.Text body
+        ]
 
 
 parserBlockParagraphToTemplateNode :
