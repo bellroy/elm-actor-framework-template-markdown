@@ -4744,7 +4744,7 @@ var $elm$core$Maybe$Just = function (a) {
 	return {$: 'Just', a: a};
 };
 var $elm$core$Maybe$Nothing = {$: 'Nothing'};
-var $author$project$Framework$Internal$Actor$altInit = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Actor$altInit = F2(
 	function (f, _v0) {
 		var init = _v0.init;
 		var update = _v0.update;
@@ -4757,7 +4757,7 @@ var $author$project$Framework$Internal$Actor$altInit = F2(
 			view: view
 		};
 	});
-var $author$project$Framework$Actor$altInit = $author$project$Framework$Internal$Actor$altInit;
+var $tricycle$elm_actor_framework$Framework$Actor$altInit = $tricycle$elm_actor_framework$Framework$Internal$Actor$altInit;
 var $elm$core$Basics$apR = F2(
 	function (x, f) {
 		return f(x);
@@ -5320,7 +5320,7 @@ var $author$project$Components$Counter$component = {
 var $elm$core$Basics$identity = function (x) {
 	return x;
 };
-var $author$project$Framework$Internal$Actor$ProcessMethods = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Actor$ProcessMethods = function (a) {
 	return {$: 'ProcessMethods', a: a};
 };
 var $elm$core$List$foldrHelper = F4(
@@ -5386,7 +5386,7 @@ var $elm$core$List$append = F2(
 			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
 		}
 	});
-var $author$project$Framework$Internal$Message$Batch = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Message$Batch = function (a) {
 	return {$: 'Batch', a: a};
 };
 var $elm$core$Basics$composeL = F3(
@@ -5394,20 +5394,20 @@ var $elm$core$Basics$composeL = F3(
 		return g(
 			f(x));
 	});
-var $author$project$Framework$Internal$Message$Operate = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Message$Operate = function (a) {
 	return {$: 'Operate', a: a};
 };
-var $author$project$Framework$Internal$Message$operate = $author$project$Framework$Internal$Message$Operate;
-var $author$project$Framework$Internal$Message$batch = A2($elm$core$Basics$composeL, $author$project$Framework$Internal$Message$operate, $author$project$Framework$Internal$Message$Batch);
-var $author$project$Framework$Internal$Message$Command = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Message$operate = $tricycle$elm_actor_framework$Framework$Internal$Message$Operate;
+var $tricycle$elm_actor_framework$Framework$Internal$Message$batch = A2($elm$core$Basics$composeL, $tricycle$elm_actor_framework$Framework$Internal$Message$operate, $tricycle$elm_actor_framework$Framework$Internal$Message$Batch);
+var $tricycle$elm_actor_framework$Framework$Internal$Message$Command = function (a) {
 	return {$: 'Command', a: a};
 };
-var $author$project$Framework$Internal$Message$command = $author$project$Framework$Internal$Message$Command;
-var $author$project$Framework$Internal$Message$InContextOfPid = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Message$command = $tricycle$elm_actor_framework$Framework$Internal$Message$Command;
+var $tricycle$elm_actor_framework$Framework$Internal$Message$InContextOfPid = F2(
 	function (a, b) {
 		return {$: 'InContextOfPid', a: a, b: b};
 	});
-var $author$project$Framework$Internal$Message$inContextOfPid = $author$project$Framework$Internal$Message$InContextOfPid;
+var $tricycle$elm_actor_framework$Framework$Internal$Message$inContextOfPid = $tricycle$elm_actor_framework$Framework$Internal$Message$InContextOfPid;
 var $elm$core$List$map = F2(
 	function (f, xs) {
 		return A3(
@@ -5432,30 +5432,30 @@ var $elm$core$Basics$composeR = F3(
 		return g(
 			f(x));
 	});
-var $author$project$Framework$Internal$Message$AppMsg = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Message$AppMsg = function (a) {
 	return {$: 'AppMsg', a: a};
 };
-var $author$project$Framework$Internal$Message$ForPid = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Message$ForPid = F2(
 	function (a, b) {
 		return {$: 'ForPid', a: a, b: b};
 	});
-var $author$project$Framework$Internal$Message$sendToPid = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Message$sendToPid = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Message$AppMsg,
+		$tricycle$elm_actor_framework$Framework$Internal$Message$AppMsg,
 		A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Message$ForPid(pid),
-			$author$project$Framework$Internal$Message$operate));
+			$tricycle$elm_actor_framework$Framework$Internal$Message$ForPid(pid),
+			$tricycle$elm_actor_framework$Framework$Internal$Message$operate));
 };
-var $author$project$Framework$Internal$Message$toSelf = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Message$toSelf = F2(
 	function (toAppMsg, pid) {
 		return A2(
 			$elm$core$Basics$composeR,
 			toAppMsg,
-			$author$project$Framework$Internal$Message$sendToPid(pid));
+			$tricycle$elm_actor_framework$Framework$Internal$Message$sendToPid(pid));
 	});
-var $author$project$Framework$Internal$Actor$wrapToTuple = F3(
+var $tricycle$elm_actor_framework$Framework$Internal$Actor$wrapToTuple = F3(
 	function (_v0, pid, _v1) {
 		var toAppModel = _v0.toAppModel;
 		var toAppMsg = _v0.toAppMsg;
@@ -5467,18 +5467,18 @@ var $author$project$Framework$Internal$Actor$wrapToTuple = F3(
 			$elm$core$Tuple$pair,
 			toAppModel(model),
 			A2(
-				$author$project$Framework$Internal$Message$inContextOfPid,
+				$tricycle$elm_actor_framework$Framework$Internal$Message$inContextOfPid,
 				pid,
-				$author$project$Framework$Internal$Message$batch(
+				$tricycle$elm_actor_framework$Framework$Internal$Message$batch(
 					A2(
 						$elm$core$List$append,
 						_Utils_eq(cmd, $elm$core$Platform$Cmd$none) ? _List_Nil : _List_fromArray(
 							[
-								$author$project$Framework$Internal$Message$operate(
-								$author$project$Framework$Internal$Message$command(
+								$tricycle$elm_actor_framework$Framework$Internal$Message$operate(
+								$tricycle$elm_actor_framework$Framework$Internal$Message$command(
 									A2(
 										$elm$core$Platform$Cmd$map,
-										A2($author$project$Framework$Internal$Message$toSelf, toAppMsg, pid),
+										A2($tricycle$elm_actor_framework$Framework$Internal$Message$toSelf, toAppMsg, pid),
 										cmd)))
 							]),
 						A2(
@@ -5489,31 +5489,31 @@ var $author$project$Framework$Internal$Actor$wrapToTuple = F3(
 							},
 							msgsOut)))));
 	});
-var $author$project$Framework$Internal$Actor$fromComponentInit = F3(
+var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentInit = F3(
 	function (_arguments, init, _v0) {
 		var pid = _v0.a;
 		var appFlags = _v0.b;
 		return A3(
-			$author$project$Framework$Internal$Actor$wrapToTuple,
+			$tricycle$elm_actor_framework$Framework$Internal$Actor$wrapToTuple,
 			_arguments,
 			pid,
 			init(
 				_Utils_Tuple2(pid, appFlags)));
 	});
 var $elm$core$Platform$Sub$map = _Platform_map;
-var $author$project$Framework$Internal$Actor$fromComponentSubscriptions = F4(
+var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentSubscriptions = F4(
 	function (_v0, subs, componentModel, pid) {
 		var toAppMsg = _v0.toAppMsg;
 		return _Utils_eq(
 			subs(componentModel),
 			$elm$core$Platform$Sub$none) ? $elm$core$Platform$Sub$none : A2(
 			$elm$core$Platform$Sub$map,
-			A2($author$project$Framework$Internal$Message$toSelf, toAppMsg, pid),
+			A2($tricycle$elm_actor_framework$Framework$Internal$Message$toSelf, toAppMsg, pid),
 			subs(componentModel));
 	});
-var $author$project$Framework$Internal$Message$NoOp = {$: 'NoOp'};
-var $author$project$Framework$Internal$Message$noOperation = $author$project$Framework$Internal$Message$NoOp;
-var $author$project$Framework$Internal$Actor$fromComponentUpdate = F5(
+var $tricycle$elm_actor_framework$Framework$Internal$Message$NoOp = {$: 'NoOp'};
+var $tricycle$elm_actor_framework$Framework$Internal$Message$noOperation = $tricycle$elm_actor_framework$Framework$Internal$Message$NoOp;
+var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentUpdate = F5(
 	function (_arguments, update, componentModel, msg, pid) {
 		if (msg.$ === 'AppMsg') {
 			var appMsg = msg.a;
@@ -5521,37 +5521,37 @@ var $author$project$Framework$Internal$Actor$fromComponentUpdate = F5(
 			if (_v1.$ === 'Just') {
 				var componentMsgIn = _v1.a;
 				return A3(
-					$author$project$Framework$Internal$Actor$wrapToTuple,
+					$tricycle$elm_actor_framework$Framework$Internal$Actor$wrapToTuple,
 					_arguments,
 					pid,
 					A2(update, componentMsgIn, componentModel));
 			} else {
 				return _Utils_Tuple2(
 					_arguments.toAppModel(componentModel),
-					$author$project$Framework$Internal$Message$noOperation);
+					$tricycle$elm_actor_framework$Framework$Internal$Message$noOperation);
 			}
 		} else {
 			return _Utils_Tuple2(
 				_arguments.toAppModel(componentModel),
-				$author$project$Framework$Internal$Message$noOperation);
+				$tricycle$elm_actor_framework$Framework$Internal$Message$noOperation);
 		}
 	});
-var $author$project$Framework$Internal$Actor$fromComponentView = F4(
+var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentView = F4(
 	function (_v0, view, componentModel, pid) {
 		var toAppMsg = _v0.toAppMsg;
 		return A2(
 			view,
-			A2($author$project$Framework$Internal$Message$toSelf, toAppMsg, pid),
+			A2($tricycle$elm_actor_framework$Framework$Internal$Message$toSelf, toAppMsg, pid),
 			componentModel);
 	});
-var $author$project$Framework$Internal$Actor$fromComponent = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponent = F2(
 	function (_arguments, component) {
-		var view = A2($author$project$Framework$Internal$Actor$fromComponentView, _arguments, component.view);
-		var update = A2($author$project$Framework$Internal$Actor$fromComponentUpdate, _arguments, component.update);
-		var subscriptions = A2($author$project$Framework$Internal$Actor$fromComponentSubscriptions, _arguments, component.subscriptions);
-		var processMethods = $author$project$Framework$Internal$Actor$ProcessMethods(
+		var view = A2($tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentView, _arguments, component.view);
+		var update = A2($tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentUpdate, _arguments, component.update);
+		var subscriptions = A2($tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentSubscriptions, _arguments, component.subscriptions);
+		var processMethods = $tricycle$elm_actor_framework$Framework$Internal$Actor$ProcessMethods(
 			{subscriptions: subscriptions, update: update, view: view});
-		var init = A2($author$project$Framework$Internal$Actor$fromComponentInit, _arguments, component.init);
+		var init = A2($tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentInit, _arguments, component.init);
 		var apply = function (componentModel) {
 			return {
 				subscriptions: subscriptions(componentModel),
@@ -5561,10 +5561,10 @@ var $author$project$Framework$Internal$Actor$fromComponent = F2(
 		};
 		return {apply: apply, init: init, processMethods: processMethods};
 	});
-var $author$project$Framework$Actor$fromComponent = $author$project$Framework$Internal$Actor$fromComponent;
-var $author$project$Framework$Message$noOperation = $author$project$Framework$Internal$Message$noOperation;
+var $tricycle$elm_actor_framework$Framework$Actor$fromComponent = $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponent;
+var $tricycle$elm_actor_framework$Framework$Message$noOperation = $tricycle$elm_actor_framework$Framework$Internal$Message$noOperation;
 var $author$project$Actors$Counter$actor = A2(
-	$author$project$Framework$Actor$fromComponent,
+	$tricycle$elm_actor_framework$Framework$Actor$fromComponent,
 	{
 		fromAppMsg: function (msg) {
 			if (msg.$ === 'CounterMsg') {
@@ -5575,13 +5575,13 @@ var $author$project$Actors$Counter$actor = A2(
 			}
 		},
 		onMsgOut: function (_v3) {
-			return $author$project$Framework$Message$noOperation;
+			return $tricycle$elm_actor_framework$Framework$Message$noOperation;
 		},
 		toAppModel: $author$project$Model$CounterModel,
 		toAppMsg: $author$project$Msg$CounterMsg
 	},
 	A2(
-		$author$project$Framework$Actor$altInit,
+		$tricycle$elm_actor_framework$Framework$Actor$altInit,
 		F2(
 			function (init, _v0) {
 				var pid = _v0.a;
@@ -11489,18 +11489,18 @@ try {
 var $dillonkearns$elm_markdown$Markdown$Parser$parse = function (input) {
 	return A2($elm$parser$Parser$Advanced$run, $dillonkearns$elm_markdown$Markdown$Parser$multiParser2, input);
 };
-var $author$project$Framework$Template$Actor = function (a) {
+var $tricycle$elm_actor_framework_template$Framework$Template$Actor = function (a) {
 	return {$: 'Actor', a: a};
 };
-var $author$project$Framework$Template$ActorElement = F5(
+var $tricycle$elm_actor_framework_template$Framework$Template$ActorElement = F5(
 	function (a, b, c, d, e) {
 		return {$: 'ActorElement', a: a, b: b, c: c, d: d, e: e};
 	});
-var $author$project$Framework$Template$Element = F3(
+var $tricycle$elm_actor_framework_template$Framework$Template$Element = F3(
 	function (a, b, c) {
 		return {$: 'Element', a: a, b: b, c: c};
 	});
-var $author$project$Framework$Template$Text = function (a) {
+var $tricycle$elm_actor_framework_template$Framework$Template$Text = function (a) {
 	return {$: 'Text', a: a};
 };
 var $author$project$Framework$Template$Markdown$Internal$Parser$attributesToString = A2(
@@ -11512,17 +11512,17 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$attributesToStri
 			return a + ('::' + b);
 		}),
 	$elm$core$String$join('%%'));
-var $author$project$Framework$Template$Internal$Components$toDict = function (_v0) {
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$toDict = function (_v0) {
 	var dict = _v0.a;
 	return dict;
 };
-var $author$project$Framework$Template$Internal$Components$get = function (query) {
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$get = function (query) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Template$Internal$Components$toDict,
+		$tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$toDict,
 		$elm$core$Dict$get(query));
 };
-var $author$project$Framework$Template$Components$getByNodeName = $author$project$Framework$Template$Internal$Components$get;
+var $tricycle$elm_actor_framework_template$Framework$Template$Components$getByNodeName = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$get;
 var $dillonkearns$elm_markdown$Markdown$Block$headingLevelToInt = function (headingLevel) {
 	switch (headingLevel.$) {
 		case 'H1':
@@ -12063,20 +12063,36 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserAttributes
 		var value = _v0.value;
 		return _Utils_Tuple2(name, value);
 	});
-var $author$project$Framework$Template$Internal$Component$toActor = function (_v0) {
+var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockCodeblockToTemplateNode = F2(
+	function (body, maybeLanguage) {
+		return A3(
+			$tricycle$elm_actor_framework_template$Framework$Template$Element,
+			'code',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'data-language',
+					A2($elm$core$Maybe$withDefault, '', maybeLanguage))
+				]),
+			_List_fromArray(
+				[
+					$tricycle$elm_actor_framework_template$Framework$Template$Text(body)
+				]));
+	});
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toActor = function (_v0) {
 	var actor = _v0.a.actor;
 	return actor;
 };
-var $author$project$Framework$Template$Component$toActor = $author$project$Framework$Template$Internal$Component$toActor;
-var $author$project$Framework$Template$Internal$Component$toDefaultAttributes = function (_v0) {
+var $tricycle$elm_actor_framework_template$Framework$Template$Component$toActor = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toActor;
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes = function (_v0) {
 	var defaultAttributes = _v0.a.defaultAttributes;
 	return defaultAttributes;
 };
-var $author$project$Framework$Template$Component$toDefaultAttributes = $author$project$Framework$Template$Internal$Component$toDefaultAttributes;
+var $tricycle$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes;
 var $author$project$Framework$Template$Markdown$Internal$Parser$wrapIfNotEmpty = F2(
 	function (nodeName, list) {
 		return ($elm$core$List$length(list) > 0) ? $elm$core$Maybe$Just(
-			A3($author$project$Framework$Template$Element, nodeName, _List_Nil, list)) : $elm$core$Maybe$Nothing;
+			A3($tricycle$elm_actor_framework_template$Framework$Template$Element, nodeName, _List_Nil, list)) : $elm$core$Maybe$Nothing;
 	});
 var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockHeadingToTemplateNode = F2(
 	function (components, headingLevel) {
@@ -12096,21 +12112,21 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockHtmlT
 				var parserAttributes = html.b;
 				var children = html.c;
 				var attributes = $author$project$Framework$Template$Markdown$Internal$Parser$parserAttributesToAttributes(parserAttributes);
-				var _v5 = A2($author$project$Framework$Template$Components$getByNodeName, nodeName, components);
+				var _v5 = A2($tricycle$elm_actor_framework_template$Framework$Template$Components$getByNodeName, nodeName, components);
 				if (_v5.$ === 'Nothing') {
 					return $elm$core$Maybe$Just(
 						A3(
-							$author$project$Framework$Template$Element,
+							$tricycle$elm_actor_framework_template$Framework$Template$Element,
 							nodeName,
 							attributes,
 							A2($author$project$Framework$Template$Markdown$Internal$Parser$parserBlocksToTemplateNodes, components, children)));
 				} else {
 					var component = _v5.a;
 					return $elm$core$Maybe$Just(
-						$author$project$Framework$Template$Actor(
+						$tricycle$elm_actor_framework_template$Framework$Template$Actor(
 							A5(
-								$author$project$Framework$Template$ActorElement,
-								$author$project$Framework$Template$Component$toActor(component),
+								$tricycle$elm_actor_framework_template$Framework$Template$ActorElement,
+								$tricycle$elm_actor_framework_template$Framework$Template$Component$toActor(component),
 								nodeName,
 								$truqu$elm_md5$MD5$hex(
 									_Utils_ap(
@@ -12119,7 +12135,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockHtmlT
 								A2(
 									$author$project$Framework$Template$Markdown$Internal$Parser$mergeAttributes,
 									attributes,
-									$author$project$Framework$Template$Component$toDefaultAttributes(component)),
+									$tricycle$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes(component)),
 								A2($author$project$Framework$Template$Markdown$Internal$Parser$parserBlocksToTemplateNodes, components, children))));
 				}
 			case 'HtmlComment':
@@ -12132,20 +12148,20 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockHtmlT
 				return A2(
 					$elm$core$Maybe$map,
 					function (component) {
-						return $author$project$Framework$Template$Actor(
+						return $tricycle$elm_actor_framework_template$Framework$Template$Actor(
 							A5(
-								$author$project$Framework$Template$ActorElement,
-								$author$project$Framework$Template$Component$toActor(component),
+								$tricycle$elm_actor_framework_template$Framework$Template$ActorElement,
+								$tricycle$elm_actor_framework_template$Framework$Template$Component$toActor(component),
 								nodeName,
 								$truqu$elm_md5$MD5$hex(
 									_Utils_ap(nodeName, rest)),
-								$author$project$Framework$Template$Component$toDefaultAttributes(component),
+								$tricycle$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes(component),
 								_List_fromArray(
 									[
-										$author$project$Framework$Template$Text(rest)
+										$tricycle$elm_actor_framework_template$Framework$Template$Text(rest)
 									])));
 					},
-					A2($author$project$Framework$Template$Components$getByNodeName, nodeName, components));
+					A2($tricycle$elm_actor_framework_template$Framework$Template$Components$getByNodeName, nodeName, components));
 			default:
 				return $elm$core$Maybe$Nothing;
 		}
@@ -12162,7 +12178,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlin
 				var children = inline.c;
 				return $elm$core$Maybe$Just(
 					A3(
-						$author$project$Framework$Template$Element,
+						$tricycle$elm_actor_framework_template$Framework$Template$Element,
 						'a',
 						_List_fromArray(
 							[
@@ -12170,7 +12186,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlin
 							]),
 						A2(
 							$elm$core$List$cons,
-							$author$project$Framework$Template$Text(
+							$tricycle$elm_actor_framework_template$Framework$Template$Text(
 								A2($elm$core$Maybe$withDefault, href, maybeTitle)),
 							A2(
 								$elm$core$List$filterMap,
@@ -12181,7 +12197,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlin
 				var maybeTitle = inline.b;
 				return $elm$core$Maybe$Just(
 					A3(
-						$author$project$Framework$Template$Element,
+						$tricycle$elm_actor_framework_template$Framework$Template$Element,
 						'img',
 						_List_fromArray(
 							[
@@ -12195,7 +12211,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlin
 				var children = inline.a;
 				return $elm$core$Maybe$Just(
 					A3(
-						$author$project$Framework$Template$Element,
+						$tricycle$elm_actor_framework_template$Framework$Template$Element,
 						'em',
 						_List_Nil,
 						A2(
@@ -12206,7 +12222,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlin
 				var children = inline.a;
 				return $elm$core$Maybe$Just(
 					A3(
-						$author$project$Framework$Template$Element,
+						$tricycle$elm_actor_framework_template$Framework$Template$Element,
 						'strong',
 						_List_Nil,
 						A2(
@@ -12217,17 +12233,17 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlin
 				var text = inline.a;
 				return $elm$core$Maybe$Just(
 					A3(
-						$author$project$Framework$Template$Element,
+						$tricycle$elm_actor_framework_template$Framework$Template$Element,
 						'code',
 						_List_Nil,
 						_List_fromArray(
 							[
-								$author$project$Framework$Template$Text(text)
+								$tricycle$elm_actor_framework_template$Framework$Template$Text(text)
 							])));
 			case 'Text':
 				var text = inline.a;
 				return $elm$core$Maybe$Just(
-					$author$project$Framework$Template$Text(text));
+					$tricycle$elm_actor_framework_template$Framework$Template$Text(text));
 			default:
 				return $elm$core$Maybe$Nothing;
 		}
@@ -12247,7 +12263,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockListI
 				case 'IncompleteTask':
 					return $elm$core$Maybe$Just(
 						A3(
-							$author$project$Framework$Template$Element,
+							$tricycle$elm_actor_framework_template$Framework$Template$Element,
 							'input',
 							_List_fromArray(
 								[
@@ -12257,7 +12273,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockListI
 				default:
 					return $elm$core$Maybe$Just(
 						A3(
-							$author$project$Framework$Template$Element,
+							$tricycle$elm_actor_framework_template$Framework$Template$Element,
 							'input',
 							_List_fromArray(
 								[
@@ -12271,7 +12287,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockListI
 			$elm$core$List$filterMap,
 			$elm$core$Basics$identity,
 			A2($elm$core$List$cons, input, parsedChildren));
-		return A3($author$project$Framework$Template$Element, 'li', _List_Nil, filteredChildren);
+		return A3($tricycle$elm_actor_framework_template$Framework$Template$Element, 'li', _List_Nil, filteredChildren);
 	});
 var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockParagraphToTemplateNode = function (components) {
 	return A2(
@@ -12310,6 +12326,13 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockToTem
 			case 'Paragraph':
 				var children = block.a;
 				return A2($author$project$Framework$Template$Markdown$Internal$Parser$parserBlockParagraphToTemplateNode, components, children);
+			case 'Table':
+				return $elm$core$Maybe$Nothing;
+			case 'CodeBlock':
+				var body = block.a.body;
+				var language = block.a.language;
+				return $elm$core$Maybe$Just(
+					A2($author$project$Framework$Template$Markdown$Internal$Parser$parserBlockCodeblockToTemplateNode, body, language));
 			default:
 				return $elm$core$Maybe$Nothing;
 		}
@@ -12500,60 +12523,60 @@ var $author$project$Components$Editor$component = function (components) {
 };
 var $author$project$Actors$Counter = {$: 'Counter'};
 var $author$project$Actors$Layout = {$: 'Layout'};
-var $author$project$Framework$Template$Internal$Components$Components = function (a) {
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$Components = function (a) {
 	return {$: 'Components', a: a};
 };
-var $author$project$Framework$Template$Internal$Components$fromDict = $author$project$Framework$Template$Internal$Components$Components;
-var $author$project$Framework$Template$Internal$Component$toNodeName = function (_v0) {
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$Components;
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName = function (_v0) {
 	var nodeName = _v0.a.nodeName;
 	return nodeName;
 };
-var $author$project$Framework$Template$Internal$Components$fromList = A2(
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromList = A2(
 	$elm$core$Basics$composeR,
 	$elm$core$List$map(
 		function (component) {
 			return _Utils_Tuple2(
-				$author$project$Framework$Template$Internal$Component$toNodeName(component),
+				$tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName(component),
 				component);
 		}),
-	A2($elm$core$Basics$composeR, $elm$core$Dict$fromList, $author$project$Framework$Template$Internal$Components$fromDict));
-var $author$project$Framework$Template$Components$fromList = $author$project$Framework$Template$Internal$Components$fromList;
-var $author$project$Framework$Template$Internal$Component$Component = function (a) {
+	A2($elm$core$Basics$composeR, $elm$core$Dict$fromList, $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict));
+var $tricycle$elm_actor_framework_template$Framework$Template$Components$fromList = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromList;
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$Component = function (a) {
 	return {$: 'Component', a: a};
 };
-var $author$project$Framework$Template$Internal$Component$make = function (_v0) {
+var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$make = function (_v0) {
 	var nodeName = _v0.nodeName;
 	var actor = _v0.actor;
-	return $author$project$Framework$Template$Internal$Component$Component(
+	return $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$Component(
 		{actor: actor, defaultAttributes: _List_Nil, nodeName: nodeName});
 };
-var $author$project$Framework$Template$Component$make = $author$project$Framework$Template$Internal$Component$make;
-var $author$project$Actors$components = $author$project$Framework$Template$Components$fromList(
+var $tricycle$elm_actor_framework_template$Framework$Template$Component$make = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$make;
+var $author$project$Actors$components = $tricycle$elm_actor_framework_template$Framework$Template$Components$fromList(
 	_List_fromArray(
 		[
-			$author$project$Framework$Template$Component$make(
+			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
 			{actor: $author$project$Actors$Counter, nodeName: 'counter-component'}),
-			$author$project$Framework$Template$Component$make(
+			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
 			{actor: $author$project$Actors$Counter, nodeName: 'COUNTER'}),
-			$author$project$Framework$Template$Component$make(
+			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
 			{actor: $author$project$Actors$Layout, nodeName: 'layout-component'})
 		]));
-var $author$project$Framework$Internal$Message$ForAddress = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Message$ForAddress = F2(
 	function (a, b) {
 		return {$: 'ForAddress', a: a, b: b};
 	});
-var $author$project$Framework$Internal$Message$sendToAddress = function (address) {
+var $tricycle$elm_actor_framework$Framework$Internal$Message$sendToAddress = function (address) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Message$AppMsg,
+		$tricycle$elm_actor_framework$Framework$Internal$Message$AppMsg,
 		A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Message$ForAddress(address),
-			$author$project$Framework$Internal$Message$operate));
+			$tricycle$elm_actor_framework$Framework$Internal$Message$ForAddress(address),
+			$tricycle$elm_actor_framework$Framework$Internal$Message$operate));
 };
-var $author$project$Framework$Message$sendToAddress = $author$project$Framework$Internal$Message$sendToAddress;
+var $tricycle$elm_actor_framework$Framework$Message$sendToAddress = $tricycle$elm_actor_framework$Framework$Internal$Message$sendToAddress;
 var $author$project$Actors$Editor$actor = A2(
-	$author$project$Framework$Actor$fromComponent,
+	$tricycle$elm_actor_framework$Framework$Actor$fromComponent,
 	{
 		fromAppMsg: function (msg) {
 			if (msg.$ === 'EditorMsg') {
@@ -12568,7 +12591,7 @@ var $author$project$Actors$Editor$actor = A2(
 			var msgOut = _v3.msgOut;
 			var markdownTemplate = msgOut.a;
 			return A2(
-				$author$project$Framework$Message$sendToAddress,
+				$tricycle$elm_actor_framework$Framework$Message$sendToAddress,
 				$author$project$Address$BaseLayoutAddress,
 				$author$project$Msg$LayoutMsg(
 					$author$project$Components$Layout$UpdateMarkdownTemplate(markdownTemplate)));
@@ -12577,7 +12600,7 @@ var $author$project$Actors$Editor$actor = A2(
 		toAppMsg: $author$project$Msg$EditorMsg
 	},
 	A2(
-		$author$project$Framework$Actor$altInit,
+		$tricycle$elm_actor_framework$Framework$Actor$altInit,
 		F2(
 			function (init, _v0) {
 				var pid = _v0.a;
@@ -12606,7 +12629,7 @@ var $author$project$Components$Layout$OnSpawnedActor = F2(
 	function (a, b) {
 		return {$: 'OnSpawnedActor', a: a, b: b};
 	});
-var $author$project$Framework$Message$batch = $author$project$Framework$Internal$Message$batch;
+var $tricycle$elm_actor_framework$Framework$Message$batch = $tricycle$elm_actor_framework$Framework$Internal$Message$batch;
 var $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$empty = $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$fromNodes(_List_Nil);
 var $author$project$Framework$Template$Markdown$blank = $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$empty;
 var $author$project$Components$Layout$SpawnActors = function (a) {
@@ -12615,7 +12638,7 @@ var $author$project$Components$Layout$SpawnActors = function (a) {
 var $author$project$Components$Layout$StopProcesses = function (a) {
 	return {$: 'StopProcesses', a: a};
 };
-function $author$project$Framework$Template$cyclic$getActorElementDescendants() {
+function $tricycle$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants() {
 	return A2(
 		$elm$core$List$foldl,
 		F2(
@@ -12628,7 +12651,7 @@ function $author$project$Framework$Template$cyclic$getActorElementDescendants() 
 						return A2(
 							$elm$core$List$append,
 							list,
-							$author$project$Framework$Template$cyclic$getActorElementDescendants()(children));
+							$tricycle$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants()(children));
 					default:
 						var actorElement = node.a;
 						return A2(
@@ -12641,9 +12664,9 @@ function $author$project$Framework$Template$cyclic$getActorElementDescendants() 
 		_List_Nil);
 }
 try {
-	var $author$project$Framework$Template$getActorElementDescendants = $author$project$Framework$Template$cyclic$getActorElementDescendants();
-	$author$project$Framework$Template$cyclic$getActorElementDescendants = function () {
-		return $author$project$Framework$Template$getActorElementDescendants;
+	var $tricycle$elm_actor_framework_template$Framework$Template$getActorElementDescendants = $tricycle$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants();
+	$tricycle$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants = function () {
+		return $tricycle$elm_actor_framework_template$Framework$Template$getActorElementDescendants;
 	};
 } catch ($) {
 	throw 'Some top-level definitions from `Framework.Template` are causing infinite recursion:\n\n  ┌─────┐\n  │    getActorElementDescendants\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
@@ -12677,9 +12700,9 @@ var $elm$core$List$member = F2(
 			},
 			xs);
 	});
-var $author$project$Framework$Template$getActorsToSpawn = A2(
+var $tricycle$elm_actor_framework_template$Framework$Template$getActorsToSpawn = A2(
 	$elm$core$Basics$composeR,
-	$author$project$Framework$Template$getActorElementDescendants,
+	$tricycle$elm_actor_framework_template$Framework$Template$getActorElementDescendants,
 	A2(
 		$elm$core$Basics$composeR,
 		$elm$core$List$map(
@@ -12699,7 +12722,7 @@ var $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$toNode
 	var nodes = _v0.a;
 	return nodes;
 };
-var $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$getActorsToSpawn = A2($elm$core$Basics$composeR, $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$toNodes, $author$project$Framework$Template$getActorsToSpawn);
+var $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$getActorsToSpawn = A2($elm$core$Basics$composeR, $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$toNodes, $tricycle$elm_actor_framework_template$Framework$Template$getActorsToSpawn);
 var $author$project$Framework$Template$Markdown$getActorsToSpawn = $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$getActorsToSpawn;
 var $author$project$Components$Layout$update = F2(
 	function (msgIn, model) {
@@ -12746,11 +12769,11 @@ var $author$project$Components$Layout$init = function (_v0) {
 		$author$project$Components$Layout$UpdateMarkdownTemplate(markdownTemplate),
 		{instances: $elm$core$Dict$empty, markdownTemplate: $author$project$Framework$Template$Markdown$blank});
 };
-var $author$project$Framework$Template$Html$Internal$HtmlTemplate$HtmlTemplate = function (a) {
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$HtmlTemplate$HtmlTemplate = function (a) {
 	return {$: 'HtmlTemplate', a: a};
 };
-var $author$project$Framework$Template$Html$Internal$HtmlTemplate$fromNodes = $author$project$Framework$Template$Html$Internal$HtmlTemplate$HtmlTemplate;
-var $author$project$Framework$Template$Html$fromNodes = $author$project$Framework$Template$Html$Internal$HtmlTemplate$fromNodes;
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$HtmlTemplate$fromNodes = $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$HtmlTemplate$HtmlTemplate;
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$fromNodes = $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$HtmlTemplate$fromNodes;
 var $elm$core$String$replace = F3(
 	function (before, after, string) {
 		return A2(
@@ -12758,7 +12781,7 @@ var $elm$core$String$replace = F3(
 			after,
 			A2($elm$core$String$split, before, string));
 	});
-var $author$project$Framework$Template$Html$Internal$Render$makeInterpolator = F2(
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$makeInterpolator = F2(
 	function (data, string) {
 		return A3(
 			$elm$core$List$foldl,
@@ -12770,7 +12793,7 @@ var $author$project$Framework$Template$Html$Internal$Render$makeInterpolator = F
 			string,
 			$elm$core$Dict$toList(data));
 	});
-var $author$project$Framework$Template$Html$Internal$Render$makeRenderReference = F3(
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$makeRenderReference = F3(
 	function (instances, renderPid, reference) {
 		return A2(
 			$elm$core$Maybe$andThen,
@@ -12790,7 +12813,7 @@ var $elm$virtual_dom$VirtualDom$attribute = F2(
 			_VirtualDom_noJavaScriptOrHtmlUri(value));
 	});
 var $elm$html$Html$Attributes$attribute = $elm$virtual_dom$VirtualDom$attribute;
-var $author$project$Framework$Template$Html$Internal$Render$toHtmlAttributes = function (interpolator) {
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$toHtmlAttributes = function (interpolator) {
 	return $elm$core$List$map(
 		function (_v0) {
 			var key = _v0.a;
@@ -12804,7 +12827,7 @@ var $author$project$Framework$Template$Html$Internal$Render$toHtmlAttributes = f
 			}
 		});
 };
-var $author$project$Framework$Template$Html$Internal$Render$templateNodeToHtml = F3(
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$templateNodeToHtml = F3(
 	function (renderReference, interpolator, node) {
 		switch (node.$) {
 			case 'Text':
@@ -12818,8 +12841,8 @@ var $author$project$Framework$Template$Html$Internal$Render$templateNodeToHtml =
 				return A3(
 					$elm$html$Html$node,
 					nodeName,
-					A2($author$project$Framework$Template$Html$Internal$Render$toHtmlAttributes, interpolator, attributes),
-					A3($author$project$Framework$Template$Html$Internal$Render$templateNodesToListHtml, renderReference, interpolator, children));
+					A2($tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$toHtmlAttributes, interpolator, attributes),
+					A3($tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$templateNodesToListHtml, renderReference, interpolator, children));
 			default:
 				var _v1 = node.a;
 				var nodeName = _v1.b;
@@ -12827,7 +12850,7 @@ var $author$project$Framework$Template$Html$Internal$Render$templateNodeToHtml =
 				var attributes = _v1.d;
 				var children = _v1.e;
 				var htmlAttributes = A2(
-					$author$project$Framework$Template$Html$Internal$Render$toHtmlAttributes,
+					$tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$toHtmlAttributes,
 					interpolator,
 					A2(
 						$elm$core$List$append,
@@ -12849,33 +12872,33 @@ var $author$project$Framework$Template$Html$Internal$Render$templateNodeToHtml =
 					return A2(
 						$elm$html$Html$span,
 						htmlAttributes,
-						A3($author$project$Framework$Template$Html$Internal$Render$templateNodesToListHtml, renderReference, interpolator, children));
+						A3($tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$templateNodesToListHtml, renderReference, interpolator, children));
 				}
 		}
 	});
-var $author$project$Framework$Template$Html$Internal$Render$templateNodesToListHtml = F2(
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$templateNodesToListHtml = F2(
 	function (renderReference, interpolator) {
 		return $elm$core$List$map(
-			A2($author$project$Framework$Template$Html$Internal$Render$templateNodeToHtml, renderReference, interpolator));
+			A2($tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$templateNodeToHtml, renderReference, interpolator));
 	});
-var $author$project$Framework$Template$Html$Internal$HtmlTemplate$toNodes = function (_v0) {
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$HtmlTemplate$toNodes = function (_v0) {
 	var nodes = _v0.a;
 	return nodes;
 };
-var $author$project$Framework$Template$Html$Internal$Render$renderAndInterpolate = F4(
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$renderAndInterpolate = F4(
 	function (instances, interpolateData, renderPid, htmlTemplate) {
-		var nodes = $author$project$Framework$Template$Html$Internal$HtmlTemplate$toNodes(htmlTemplate);
+		var nodes = $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$HtmlTemplate$toNodes(htmlTemplate);
 		return A3(
-			$author$project$Framework$Template$Html$Internal$Render$templateNodesToListHtml,
-			A2($author$project$Framework$Template$Html$Internal$Render$makeRenderReference, instances, renderPid),
-			$author$project$Framework$Template$Html$Internal$Render$makeInterpolator(interpolateData),
+			$tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$templateNodesToListHtml,
+			A2($tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$makeRenderReference, instances, renderPid),
+			$tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$makeInterpolator(interpolateData),
 			nodes);
 	});
-var $author$project$Framework$Template$Html$Internal$Render$render = F3(
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$render = F3(
 	function (instances, renderPid, htmlTemplate) {
-		return A4($author$project$Framework$Template$Html$Internal$Render$renderAndInterpolate, instances, $elm$core$Dict$empty, renderPid, htmlTemplate);
+		return A4($tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$renderAndInterpolate, instances, $elm$core$Dict$empty, renderPid, htmlTemplate);
 	});
-var $author$project$Framework$Template$Html$render = $author$project$Framework$Template$Html$Internal$Render$render;
+var $tricycle$elm_actor_framework_template_html$Framework$Template$Html$render = $tricycle$elm_actor_framework_template_html$Framework$Template$Html$Internal$Render$render;
 var $author$project$Framework$Template$Markdown$toNodes = $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$toNodes;
 var $author$project$Components$Layout$view = F3(
 	function (_v0, _v1, renderPid) {
@@ -12885,10 +12908,10 @@ var $author$project$Components$Layout$view = F3(
 			$elm$html$Html$div,
 			_List_Nil,
 			A3(
-				$author$project$Framework$Template$Html$render,
+				$tricycle$elm_actor_framework_template_html$Framework$Template$Html$render,
 				instances,
 				renderPid,
-				$author$project$Framework$Template$Html$fromNodes(
+				$tricycle$elm_actor_framework_template_html$Framework$Template$Html$fromNodes(
 					$author$project$Framework$Template$Markdown$toNodes(markdownTemplate))));
 	});
 var $author$project$Components$Layout$component = {
@@ -12898,24 +12921,24 @@ var $author$project$Components$Layout$component = {
 	view: $author$project$Components$Layout$view
 };
 var $author$project$Framework$Template$Markdown$fromNodes = $author$project$Framework$Template$Markdown$Internal$MarkdownTemplate$fromNodes;
-var $author$project$Framework$Message$sendToPid = $author$project$Framework$Internal$Message$sendToPid;
-var $author$project$Framework$Internal$Message$Spawn = F3(
+var $tricycle$elm_actor_framework$Framework$Message$sendToPid = $tricycle$elm_actor_framework$Framework$Internal$Message$sendToPid;
+var $tricycle$elm_actor_framework$Framework$Internal$Message$Spawn = F3(
 	function (a, b, c) {
 		return {$: 'Spawn', a: a, b: b, c: c};
 	});
-var $author$project$Framework$Internal$Message$spawn = F3(
+var $tricycle$elm_actor_framework$Framework$Internal$Message$spawn = F3(
 	function (flags, actorName, callback) {
-		return $author$project$Framework$Internal$Message$operate(
-			A3($author$project$Framework$Internal$Message$Spawn, flags, actorName, callback));
+		return $tricycle$elm_actor_framework$Framework$Internal$Message$operate(
+			A3($tricycle$elm_actor_framework$Framework$Internal$Message$Spawn, flags, actorName, callback));
 	});
-var $author$project$Framework$Message$spawn = $author$project$Framework$Internal$Message$spawn;
-var $author$project$Framework$Internal$Message$StopProcess = function (a) {
+var $tricycle$elm_actor_framework$Framework$Message$spawn = $tricycle$elm_actor_framework$Framework$Internal$Message$spawn;
+var $tricycle$elm_actor_framework$Framework$Internal$Message$StopProcess = function (a) {
 	return {$: 'StopProcess', a: a};
 };
-var $author$project$Framework$Internal$Message$stopProcess = A2($elm$core$Basics$composeR, $author$project$Framework$Internal$Message$StopProcess, $author$project$Framework$Internal$Message$operate);
-var $author$project$Framework$Message$stopProcess = $author$project$Framework$Internal$Message$stopProcess;
+var $tricycle$elm_actor_framework$Framework$Internal$Message$stopProcess = A2($elm$core$Basics$composeR, $tricycle$elm_actor_framework$Framework$Internal$Message$StopProcess, $tricycle$elm_actor_framework$Framework$Internal$Message$operate);
+var $tricycle$elm_actor_framework$Framework$Message$stopProcess = $tricycle$elm_actor_framework$Framework$Internal$Message$stopProcess;
 var $author$project$Actors$Layout$actor = A2(
-	$author$project$Framework$Actor$fromComponent,
+	$tricycle$elm_actor_framework$Framework$Actor$fromComponent,
 	{
 		fromAppMsg: function (msg) {
 			if (msg.$ === 'LayoutMsg') {
@@ -12930,11 +12953,11 @@ var $author$project$Actors$Layout$actor = A2(
 			var msgOut = _v3.msgOut;
 			if (msgOut.$ === 'StopProcesses') {
 				var pids = msgOut.a;
-				return $author$project$Framework$Message$batch(
-					A2($elm$core$List$map, $author$project$Framework$Message$stopProcess, pids));
+				return $tricycle$elm_actor_framework$Framework$Message$batch(
+					A2($elm$core$List$map, $tricycle$elm_actor_framework$Framework$Message$stopProcess, pids));
 			} else {
 				var actorsAndReferences = msgOut.a;
-				return $author$project$Framework$Message$batch(
+				return $tricycle$elm_actor_framework$Framework$Message$batch(
 					A2(
 						$elm$core$List$map,
 						function (_v5) {
@@ -13029,7 +13052,7 @@ var $author$project$Actors$Layout$actor = A2(
 								}
 							}();
 							return A3(
-								$author$project$Framework$Message$spawn,
+								$tricycle$elm_actor_framework$Framework$Message$spawn,
 								flags,
 								actorToSpawn,
 								A2(
@@ -13038,7 +13061,7 @@ var $author$project$Actors$Layout$actor = A2(
 									A2(
 										$elm$core$Basics$composeR,
 										$author$project$Msg$LayoutMsg,
-										$author$project$Framework$Message$sendToPid(self))));
+										$tricycle$elm_actor_framework$Framework$Message$sendToPid(self))));
 						},
 						actorsAndReferences));
 			}
@@ -13047,7 +13070,7 @@ var $author$project$Actors$Layout$actor = A2(
 		toAppMsg: $author$project$Msg$LayoutMsg
 	},
 	A2(
-		$author$project$Framework$Actor$altInit,
+		$tricycle$elm_actor_framework$Framework$Actor$altInit,
 		F2(
 			function (init, _v0) {
 				var pid = _v0.a;
@@ -13283,14 +13306,14 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $author$project$Framework$Internal$Model$getViews = function ($) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$getViews = function ($) {
 	return $.views;
 };
-var $author$project$Framework$Internal$Model$PidCollection$toDict = function (_v0) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict = function (_v0) {
 	var dict = _v0.a;
 	return dict;
 };
-var $author$project$Framework$Internal$Pid$toInt = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Pid$toInt = function (pid) {
 	if (pid.$ === 'System') {
 		return 1;
 	} else {
@@ -13298,32 +13321,32 @@ var $author$project$Framework$Internal$Pid$toInt = function (pid) {
 		return id;
 	}
 };
-var $author$project$Framework$Internal$Model$PidCollection$get = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$get = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$PidCollection$toDict,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 		A2(
 			$elm$core$Basics$composeR,
 			$elm$core$Dict$get(
-				$author$project$Framework$Internal$Pid$toInt(pid)),
+				$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(pid)),
 			$elm$core$Maybe$map($elm$core$Tuple$second)));
 };
-var $author$project$Framework$Internal$Model$Instances$toPidCollection = function (_v0) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection = function (_v0) {
 	var pidCollection = _v0.a;
 	return pidCollection;
 };
-var $author$project$Framework$Internal$Model$Instances$get = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$get = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$Instances$toPidCollection,
-		$author$project$Framework$Internal$Model$PidCollection$get(pid));
+		$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$get(pid));
 };
-var $author$project$Framework$Internal$Model$getInstance = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$getInstance = F2(
 	function (pid, _v0) {
 		var instances = _v0.instances;
-		return A2($author$project$Framework$Internal$Model$Instances$get, pid, instances);
+		return A2($tricycle$elm_actor_framework$Framework$Internal$Model$Instances$get, pid, instances);
 	});
-var $author$project$Framework$Internal$Render$renderPid = F3(
+var $tricycle$elm_actor_framework$Framework$Internal$Render$renderPid = F3(
 	function (appliedActorView, frameworkModel, pid) {
 		return A2(
 			$elm$core$Maybe$map,
@@ -13332,16 +13355,16 @@ var $author$project$Framework$Internal$Render$renderPid = F3(
 					appliedActorView,
 					appModel,
 					pid,
-					A2($author$project$Framework$Internal$Render$renderPid, appliedActorView, frameworkModel));
+					A2($tricycle$elm_actor_framework$Framework$Internal$Render$renderPid, appliedActorView, frameworkModel));
 			},
-			A2($author$project$Framework$Internal$Model$getInstance, pid, frameworkModel));
+			A2($tricycle$elm_actor_framework$Framework$Internal$Model$getInstance, pid, frameworkModel));
 	});
-var $author$project$Framework$Internal$Render$element = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Render$element = F2(
 	function (apply, frameworkModel) {
 		return A2(
 			$elm$core$List$filterMap,
 			A2(
-				$author$project$Framework$Internal$Render$renderPid,
+				$tricycle$elm_actor_framework$Framework$Internal$Render$renderPid,
 				A2(
 					$elm$core$Basics$composeL,
 					function ($) {
@@ -13349,32 +13372,32 @@ var $author$project$Framework$Internal$Render$element = F2(
 					},
 					apply),
 				frameworkModel),
-			$author$project$Framework$Internal$Model$getViews(frameworkModel));
+			$tricycle$elm_actor_framework$Framework$Internal$Model$getViews(frameworkModel));
 	});
-var $author$project$Framework$Internal$Model$PidCollection$PidCollection = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$PidCollection = function (a) {
 	return {$: 'PidCollection', a: a};
 };
-var $author$project$Framework$Internal$Model$PidCollection$fromDict = $author$project$Framework$Internal$Model$PidCollection$PidCollection;
-var $author$project$Framework$Internal$Model$PidCollection$empty = $author$project$Framework$Internal$Model$PidCollection$fromDict($elm$core$Dict$empty);
-var $author$project$Framework$Internal$Model$Instances$Instances = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict = $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$PidCollection;
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict($elm$core$Dict$empty);
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$Instances = function (a) {
 	return {$: 'Instances', a: a};
 };
-var $author$project$Framework$Internal$Model$Instances$fromPidCollection = $author$project$Framework$Internal$Model$Instances$Instances;
-var $author$project$Framework$Internal$Model$Instances$empty = $author$project$Framework$Internal$Model$Instances$fromPidCollection($author$project$Framework$Internal$Model$PidCollection$empty);
-var $author$project$Framework$Internal$Model$OccupiedAddresses$OccupiedAddresses = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection = $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$Instances;
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$empty);
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$OccupiedAddresses = function (a) {
 	return {$: 'OccupiedAddresses', a: a};
 };
-var $author$project$Framework$Internal$Model$OccupiedAddresses$fromList = $author$project$Framework$Internal$Model$OccupiedAddresses$OccupiedAddresses;
-var $author$project$Framework$Internal$Model$OccupiedAddresses$empty = $author$project$Framework$Internal$Model$OccupiedAddresses$fromList(_List_Nil);
-var $author$project$Framework$Internal$Model$Parents$Parents = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$OccupiedAddresses;
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList(_List_Nil);
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Parents = function (a) {
 	return {$: 'Parents', a: a};
 };
-var $author$project$Framework$Internal$Model$Parents$fromPidCollection = $author$project$Framework$Internal$Model$Parents$Parents;
-var $author$project$Framework$Internal$Model$Parents$empty = $author$project$Framework$Internal$Model$Parents$fromPidCollection($author$project$Framework$Internal$Model$PidCollection$empty);
-var $author$project$Framework$Internal$Pid$System = {$: 'System'};
-var $author$project$Framework$Internal$Pid$system = $author$project$Framework$Internal$Pid$System;
-var $author$project$Framework$Internal$Model$empty = {documentTitle: '', instances: $author$project$Framework$Internal$Model$Instances$empty, lastPid: $author$project$Framework$Internal$Pid$system, occupiedAddresses: $author$project$Framework$Internal$Model$OccupiedAddresses$empty, parents: $author$project$Framework$Internal$Model$Parents$empty, views: _List_Nil};
-var $author$project$Framework$Internal$Model$addToView = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection = $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Parents;
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$empty);
+var $tricycle$elm_actor_framework$Framework$Internal$Pid$System = {$: 'System'};
+var $tricycle$elm_actor_framework$Framework$Internal$Pid$system = $tricycle$elm_actor_framework$Framework$Internal$Pid$System;
+var $tricycle$elm_actor_framework$Framework$Internal$Model$empty = {documentTitle: '', instances: $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$empty, lastPid: $tricycle$elm_actor_framework$Framework$Internal$Pid$system, occupiedAddresses: $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$empty, parents: $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$empty, views: _List_Nil};
+var $tricycle$elm_actor_framework$Framework$Internal$Model$addToView = F2(
 	function (pid, model) {
 		return _Utils_update(
 			model,
@@ -13390,7 +13413,7 @@ var $elm$core$List$concatMap = F2(
 		return $elm$core$List$concat(
 			A2($elm$core$List$map, f, list));
 	});
-var $author$project$Framework$Internal$Message$filterAppMsgs = function (msg) {
+var $tricycle$elm_actor_framework$Framework$Internal$Message$filterAppMsgs = function (msg) {
 	_v0$2:
 	while (true) {
 		switch (msg.$) {
@@ -13400,7 +13423,7 @@ var $author$project$Framework$Internal$Message$filterAppMsgs = function (msg) {
 			case 'Operate':
 				if (msg.a.$ === 'Batch') {
 					var batchMsgs = msg.a.a;
-					return A2($elm$core$List$concatMap, $author$project$Framework$Internal$Message$filterAppMsgs, batchMsgs);
+					return A2($elm$core$List$concatMap, $tricycle$elm_actor_framework$Framework$Internal$Message$filterAppMsgs, batchMsgs);
 				} else {
 					break _v0$2;
 				}
@@ -13410,42 +13433,42 @@ var $author$project$Framework$Internal$Message$filterAppMsgs = function (msg) {
 	}
 	return _List_Nil;
 };
-var $author$project$Framework$Internal$Message$filterNoOp = $elm$core$List$filter(
+var $tricycle$elm_actor_framework$Framework$Internal$Message$filterNoOp = $elm$core$List$filter(
 	function (msg) {
-		return (!_Utils_eq(msg, $author$project$Framework$Internal$Message$NoOp)) && (!_Utils_eq(
+		return (!_Utils_eq(msg, $tricycle$elm_actor_framework$Framework$Internal$Message$NoOp)) && (!_Utils_eq(
 			msg,
-			$author$project$Framework$Internal$Message$Operate(
-				$author$project$Framework$Internal$Message$Batch(_List_Nil))));
+			$tricycle$elm_actor_framework$Framework$Internal$Message$Operate(
+				$tricycle$elm_actor_framework$Framework$Internal$Message$Batch(_List_Nil))));
 	});
-var $author$project$Framework$Internal$Model$OccupiedAddresses$toList = function (_v0) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList = function (_v0) {
 	var list = _v0.a;
 	return list;
 };
-var $author$project$Framework$Internal$Model$OccupiedAddresses$filterMap = function (f) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$filterMap = function (f) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$OccupiedAddresses$toList,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList,
 		$elm$core$List$filterMap(f));
 };
-var $author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple = function (_v0) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple = function (_v0) {
 	var tuple = _v0.a;
 	return tuple;
 };
-var $author$project$Framework$Internal$Model$OccupiedAddresses$getPidsOnAddress = function (queryAddress) {
-	return $author$project$Framework$Internal$Model$OccupiedAddresses$filterMap(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getPidsOnAddress = function (queryAddress) {
+	return $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$filterMap(
 		A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple,
+			$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple,
 			function (_v0) {
 				var address = _v0.a;
 				var pid = _v0.b;
 				return _Utils_eq(address, queryAddress) ? $elm$core$Maybe$Just(pid) : $elm$core$Maybe$Nothing;
 			}));
 };
-var $author$project$Framework$Internal$Model$getInhabitants = function (address) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$getInhabitants = function (address) {
 	return A2(
 		$elm$core$Basics$composeL,
-		$author$project$Framework$Internal$Model$OccupiedAddresses$getPidsOnAddress(address),
+		$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getPidsOnAddress(address),
 		function ($) {
 			return $.occupiedAddresses;
 		});
@@ -13458,88 +13481,88 @@ var $elm$core$Tuple$mapFirst = F2(
 			func(x),
 			y);
 	});
-var $author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$Inhabitant = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$Inhabitant = function (a) {
 	return {$: 'Inhabitant', a: a};
 };
-var $author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple = $author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$Inhabitant;
-var $author$project$Framework$Internal$Model$OccupiedAddresses$insert = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$Inhabitant;
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$insert = F2(
 	function (address, pid) {
 		return A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Model$OccupiedAddresses$toList,
+			$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList,
 			A2(
 				$elm$core$Basics$composeR,
 				$elm$core$List$cons(
-					$author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple(
+					$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple(
 						_Utils_Tuple2(address, pid))),
-				$author$project$Framework$Internal$Model$OccupiedAddresses$fromList));
+				$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList));
 	});
-var $author$project$Framework$Internal$Model$populateAddress = F3(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$populateAddress = F3(
 	function (address, pid, model) {
 		return _Utils_update(
 			model,
 			{
-				occupiedAddresses: A3($author$project$Framework$Internal$Model$OccupiedAddresses$insert, address, pid, model.occupiedAddresses)
+				occupiedAddresses: A3($tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$insert, address, pid, model.occupiedAddresses)
 			});
 	});
 var $elm$core$List$singleton = function (value) {
 	return _List_fromArray(
 		[value]);
 };
-var $author$project$Framework$Internal$Helper$List$postpend = function (list) {
+var $tricycle$elm_actor_framework$Framework$Internal$Helper$List$postpend = function (list) {
 	return A2(
 		$elm$core$Basics$composeR,
 		$elm$core$List$singleton,
 		$elm$core$Basics$append(list));
 };
-var $author$project$Framework$Internal$Pid$compare = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Pid$compare = F2(
 	function (a, b) {
 		return A2(
 			$elm$core$Basics$compare,
-			$author$project$Framework$Internal$Pid$toInt(a),
-			$author$project$Framework$Internal$Pid$toInt(b));
+			$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(a),
+			$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(b));
 	});
-var $author$project$Framework$Internal$Pid$equals = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Pid$equals = F2(
 	function (a, b) {
 		return _Utils_eq(
-			A2($author$project$Framework$Internal$Pid$compare, a, b),
+			A2($tricycle$elm_actor_framework$Framework$Internal$Pid$compare, a, b),
 			$elm$core$Basics$EQ);
 	});
-var $author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$equals = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$equals = F2(
 	function (a, b) {
-		var _v0 = $author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple(b);
+		var _v0 = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple(b);
 		var address_b = _v0.a;
 		var pid_b = _v0.b;
-		var _v1 = $author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple(a);
+		var _v1 = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple(a);
 		var address_a = _v1.a;
 		var pid_a = _v1.b;
-		return _Utils_eq(address_a, address_b) && A2($author$project$Framework$Internal$Pid$equals, pid_a, pid_b);
+		return _Utils_eq(address_a, address_b) && A2($tricycle$elm_actor_framework$Framework$Internal$Pid$equals, pid_a, pid_b);
 	});
-var $author$project$Framework$Internal$Model$OccupiedAddresses$remove = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$remove = F2(
 	function (address, pid) {
-		var inhabitantToRemove = $author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple(
+		var inhabitantToRemove = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple(
 			_Utils_Tuple2(address, pid));
 		return A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Model$OccupiedAddresses$toList,
+			$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList,
 			A2(
 				$elm$core$Basics$composeR,
 				$elm$core$List$filter(
 					A2(
 						$elm$core$Basics$composeL,
 						$elm$core$Basics$not,
-						$author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$equals(inhabitantToRemove))),
-				$author$project$Framework$Internal$Model$OccupiedAddresses$fromList));
+						$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$equals(inhabitantToRemove))),
+				$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList));
 	});
-var $author$project$Framework$Internal$Model$removeFromAddress = F3(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$removeFromAddress = F3(
 	function (address, pid, model) {
 		return _Utils_update(
 			model,
 			{
-				occupiedAddresses: A3($author$project$Framework$Internal$Model$OccupiedAddresses$remove, address, pid, model.occupiedAddresses)
+				occupiedAddresses: A3($tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$remove, address, pid, model.occupiedAddresses)
 			});
 	});
-var $author$project$Framework$Internal$Model$removeFromView = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$removeFromView = F2(
 	function (pid, model) {
 		return _Utils_update(
 			model,
@@ -13549,15 +13572,15 @@ var $author$project$Framework$Internal$Model$removeFromView = F2(
 					A2(
 						$elm$core$Basics$composeL,
 						$elm$core$Basics$not,
-						$author$project$Framework$Internal$Pid$equals(pid)),
+						$tricycle$elm_actor_framework$Framework$Internal$Pid$equals(pid)),
 					model.views)
 			});
 	});
-var $author$project$Framework$Internal$Model$OccupiedAddresses$getAddressesForPid = function (queryPid) {
-	return $author$project$Framework$Internal$Model$OccupiedAddresses$filterMap(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getAddressesForPid = function (queryPid) {
+	return $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$filterMap(
 		A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple,
+			$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple,
 			function (_v0) {
 				var address = _v0.a;
 				var pid = _v0.b;
@@ -13926,97 +13949,97 @@ var $elm$core$Dict$remove = F2(
 			return x;
 		}
 	});
-var $author$project$Framework$Internal$Model$PidCollection$remove = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$PidCollection$toDict,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 		A2(
 			$elm$core$Basics$composeR,
 			$elm$core$Dict$remove(
-				$author$project$Framework$Internal$Pid$toInt(pid)),
-			$author$project$Framework$Internal$Model$PidCollection$fromDict));
+				$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(pid)),
+			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
 };
-var $author$project$Framework$Internal$Model$Instances$remove = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$remove = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$Instances$toPidCollection,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection,
 		A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Model$PidCollection$remove(pid),
-			$author$project$Framework$Internal$Model$Instances$fromPidCollection));
+			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove(pid),
+			$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection));
 };
-var $author$project$Framework$Internal$Model$Parents$Children$Children = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$Children = function (a) {
 	return {$: 'Children', a: a};
 };
-var $author$project$Framework$Internal$Model$Parents$Children$fromPidCollection = $author$project$Framework$Internal$Model$Parents$Children$Children;
-var $author$project$Framework$Internal$Model$Parents$Children$empty = $author$project$Framework$Internal$Model$Parents$Children$fromPidCollection($author$project$Framework$Internal$Model$PidCollection$empty);
-var $author$project$Framework$Internal$Model$PidCollection$insert = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection = $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$Children;
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$empty);
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$insert = F2(
 	function (pid, a) {
 		return A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Model$PidCollection$toDict,
+			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 			A2(
 				$elm$core$Basics$composeR,
 				A2(
 					$elm$core$Dict$insert,
-					$author$project$Framework$Internal$Pid$toInt(pid),
+					$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(pid),
 					_Utils_Tuple2(pid, a)),
-				$author$project$Framework$Internal$Model$PidCollection$fromDict));
+				$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
 	});
-var $author$project$Framework$Internal$Model$Parents$Children$toPidCollection = function (_v0) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection = function (_v0) {
 	var pidCollection = _v0.a;
 	return pidCollection;
 };
-var $author$project$Framework$Internal$Model$Parents$Children$insert = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$Parents$Children$toPidCollection,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection,
 		A2(
 			$elm$core$Basics$composeR,
-			A2($author$project$Framework$Internal$Model$PidCollection$insert, pid, _Utils_Tuple0),
-			$author$project$Framework$Internal$Model$Parents$Children$fromPidCollection));
+			A2($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$insert, pid, _Utils_Tuple0),
+			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection));
 };
-var $author$project$Framework$Internal$Model$PidCollection$toList = A2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toList = A2(
 	$elm$core$Basics$composeR,
-	$author$project$Framework$Internal$Model$PidCollection$toDict,
+	$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 	A2(
 		$elm$core$Basics$composeR,
 		$elm$core$Dict$toList,
 		$elm$core$List$map($elm$core$Tuple$second)));
-var $author$project$Framework$Internal$Model$Parents$Children$toList = A2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList = A2(
 	$elm$core$Basics$composeR,
-	$author$project$Framework$Internal$Model$Parents$Children$toPidCollection,
+	$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection,
 	A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$PidCollection$toList,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toList,
 		$elm$core$List$map($elm$core$Tuple$first)));
-var $author$project$Framework$Internal$Model$Parents$toPidCollection = function (_v0) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection = function (_v0) {
 	var pidCollection = _v0.a;
 	return pidCollection;
 };
-var $author$project$Framework$Internal$Model$Parents$getDescendants = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$getDescendants = F2(
 	function (pid, parents) {
 		return A3(
 			$elm$core$List$foldl,
 			F2(
 				function (pid_, children) {
-					var inclusive = A2($author$project$Framework$Internal$Model$Parents$Children$insert, pid_, children);
+					var inclusive = A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert, pid_, children);
 					return A3(
 						$elm$core$List$foldl,
-						$author$project$Framework$Internal$Model$Parents$Children$insert,
+						$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert,
 						inclusive,
-						$author$project$Framework$Internal$Model$Parents$Children$toList(
-							A2($author$project$Framework$Internal$Model$Parents$getDescendants, pid_, parents)));
+						$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList(
+							A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$getDescendants, pid_, parents)));
 				}),
-			$author$project$Framework$Internal$Model$Parents$Children$empty,
-			$author$project$Framework$Internal$Model$Parents$Children$toList(
+			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty,
+			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList(
 				A2(
 					$elm$core$Maybe$withDefault,
-					$author$project$Framework$Internal$Model$Parents$Children$empty,
+					$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty,
 					A2(
-						$author$project$Framework$Internal$Model$PidCollection$get,
+						$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$get,
 						pid,
-						$author$project$Framework$Internal$Model$Parents$toPidCollection(parents)))));
+						$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection(parents)))));
 	});
 var $elm$core$Dict$map = F2(
 	function (func, dict) {
@@ -14037,70 +14060,70 @@ var $elm$core$Dict$map = F2(
 				A2($elm$core$Dict$map, func, right));
 		}
 	});
-var $author$project$Framework$Internal$Model$PidCollection$map = function (f) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$map = function (f) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$PidCollection$toDict,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 		A2(
 			$elm$core$Basics$composeR,
 			$elm$core$Dict$map(
 				function (_v0) {
 					return $elm$core$Tuple$mapSecond(f);
 				}),
-			$author$project$Framework$Internal$Model$PidCollection$fromDict));
+			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
 };
-var $author$project$Framework$Internal$Model$Parents$Children$remove = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$remove = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$Parents$Children$toPidCollection,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection,
 		A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Model$PidCollection$remove(pid),
-			$author$project$Framework$Internal$Model$Parents$Children$fromPidCollection));
+			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove(pid),
+			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection));
 };
-var $author$project$Framework$Internal$Model$Parents$remove = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$remove = F2(
 	function (pid, parents) {
-		return $author$project$Framework$Internal$Model$Parents$fromPidCollection(
+		return $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection(
 			A2(
-				$author$project$Framework$Internal$Model$PidCollection$map,
-				$author$project$Framework$Internal$Model$Parents$Children$remove(pid),
+				$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$map,
+				$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$remove(pid),
 				A2(
-					$author$project$Framework$Internal$Model$PidCollection$remove,
+					$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove,
 					pid,
 					function (parentsPidCollection) {
 						return A3(
 							$elm$core$List$foldl,
-							$author$project$Framework$Internal$Model$PidCollection$remove,
+							$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove,
 							parentsPidCollection,
-							$author$project$Framework$Internal$Model$Parents$Children$toList(
-								A2($author$project$Framework$Internal$Model$Parents$getDescendants, pid, parents)));
+							$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList(
+								A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$getDescendants, pid, parents)));
 					}(
-						$author$project$Framework$Internal$Model$Parents$toPidCollection(parents)))));
+						$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection(parents)))));
 	});
-var $author$project$Framework$Internal$Model$removePid = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$removePid = F2(
 	function (pid, model) {
 		return _Utils_update(
 			model,
 			{
-				instances: A2($author$project$Framework$Internal$Model$Instances$remove, pid, model.instances),
+				instances: A2($tricycle$elm_actor_framework$Framework$Internal$Model$Instances$remove, pid, model.instances),
 				occupiedAddresses: A3(
 					$elm$core$List$foldl,
 					function (address) {
-						return A2($author$project$Framework$Internal$Model$OccupiedAddresses$remove, address, pid);
+						return A2($tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$remove, address, pid);
 					},
 					model.occupiedAddresses,
-					A2($author$project$Framework$Internal$Model$OccupiedAddresses$getAddressesForPid, pid, model.occupiedAddresses)),
-				parents: A2($author$project$Framework$Internal$Model$Parents$remove, pid, model.parents),
+					A2($tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getAddressesForPid, pid, model.occupiedAddresses)),
+				parents: A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$remove, pid, model.parents),
 				views: A2(
 					$elm$core$List$filter,
 					A2(
 						$elm$core$Basics$composeL,
 						$elm$core$Basics$not,
-						$author$project$Framework$Internal$Pid$equals(pid)),
+						$tricycle$elm_actor_framework$Framework$Internal$Pid$equals(pid)),
 					model.views)
 			});
 	});
-var $author$project$Framework$Internal$Pid$toSpawnedBy = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Pid$toSpawnedBy = function (pid) {
 	if (pid.$ === 'System') {
 		return pid;
 	} else {
@@ -14119,16 +14142,16 @@ var $elm$core$Dict$update = F3(
 			return A2($elm$core$Dict$remove, targetKey, dictionary);
 		}
 	});
-var $author$project$Framework$Internal$Model$PidCollection$update = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$update = F2(
 	function (pid, f) {
 		return A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Model$PidCollection$toDict,
+			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 			A2(
 				$elm$core$Basics$composeR,
 				A2(
 					$elm$core$Dict$update,
-					$author$project$Framework$Internal$Pid$toInt(pid),
+					$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(pid),
 					A2(
 						$elm$core$Basics$composeR,
 						$elm$core$Maybe$map($elm$core$Tuple$second),
@@ -14139,48 +14162,48 @@ var $author$project$Framework$Internal$Model$PidCollection$update = F2(
 								$elm$core$Basics$composeR,
 								$elm$core$Tuple$pair(pid),
 								$elm$core$Maybe$Just)))),
-				$author$project$Framework$Internal$Model$PidCollection$fromDict));
+				$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
 	});
-var $author$project$Framework$Internal$Model$Parents$addChild = function (pid) {
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$addChild = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Internal$Model$Parents$toPidCollection,
+		$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection,
 		A2(
 			$elm$core$Basics$composeR,
 			A2(
-				$author$project$Framework$Internal$Model$PidCollection$update,
-				$author$project$Framework$Internal$Pid$toSpawnedBy(pid),
+				$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$update,
+				$tricycle$elm_actor_framework$Framework$Internal$Pid$toSpawnedBy(pid),
 				A2(
 					$elm$core$Basics$composeR,
-					$elm$core$Maybe$withDefault($author$project$Framework$Internal$Model$Parents$Children$empty),
-					$author$project$Framework$Internal$Model$Parents$Children$insert(pid))),
-			$author$project$Framework$Internal$Model$Parents$fromPidCollection));
+					$elm$core$Maybe$withDefault($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty),
+					$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert(pid))),
+			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection));
 };
-var $author$project$Framework$Internal$Model$Instances$insert = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$insert = F2(
 	function (pid, instance) {
 		return A2(
 			$elm$core$Basics$composeR,
-			$author$project$Framework$Internal$Model$Instances$toPidCollection,
+			$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection,
 			A2(
 				$elm$core$Basics$composeR,
-				A2($author$project$Framework$Internal$Model$PidCollection$insert, pid, instance),
-				$author$project$Framework$Internal$Model$Instances$fromPidCollection));
+				A2($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$insert, pid, instance),
+				$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection));
 	});
-var $author$project$Framework$Internal$Pid$Pid = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Pid$Pid = function (a) {
 	return {$: 'Pid', a: a};
 };
-var $author$project$Framework$Internal$Pid$new = function (_v0) {
+var $tricycle$elm_actor_framework$Framework$Internal$Pid$new = function (_v0) {
 	var previousPid = _v0.previousPid;
 	var spawnedBy = _v0.spawnedBy;
-	return $author$project$Framework$Internal$Pid$Pid(
+	return $tricycle$elm_actor_framework$Framework$Internal$Pid$Pid(
 		{
-			id: 1 + $author$project$Framework$Internal$Pid$toInt(previousPid),
+			id: 1 + $tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(previousPid),
 			spawnedBy: spawnedBy
 		});
 };
-var $author$project$Framework$Internal$Model$spawnInstance = F5(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$spawnInstance = F5(
 	function (factory, spawnedBy, actorName, flags, model) {
-		var newPid = $author$project$Framework$Internal$Pid$new(
+		var newPid = $tricycle$elm_actor_framework$Framework$Internal$Pid$new(
 			{previousPid: model.lastPid, spawnedBy: spawnedBy});
 		var _v0 = A2(
 			factory,
@@ -14192,27 +14215,27 @@ var $author$project$Framework$Internal$Model$spawnInstance = F5(
 			_Utils_update(
 				model,
 				{
-					instances: A3($author$project$Framework$Internal$Model$Instances$insert, newPid, appModel, model.instances),
+					instances: A3($tricycle$elm_actor_framework$Framework$Internal$Model$Instances$insert, newPid, appModel, model.instances),
 					lastPid: newPid,
-					parents: A2($author$project$Framework$Internal$Model$Parents$addChild, newPid, model.parents)
+					parents: A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$addChild, newPid, model.parents)
 				}),
 			msg);
 	});
-var $author$project$Framework$Internal$Model$updateDocumentTitle = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$updateDocumentTitle = F2(
 	function (title, model) {
 		return _Utils_update(
 			model,
 			{documentTitle: title});
 	});
-var $author$project$Framework$Internal$Model$updateInstance = F3(
+var $tricycle$elm_actor_framework$Framework$Internal$Model$updateInstance = F3(
 	function (model, pid, appModel) {
 		return _Utils_update(
 			model,
 			{
-				instances: A3($author$project$Framework$Internal$Model$Instances$insert, pid, appModel, model.instances)
+				instances: A3($tricycle$elm_actor_framework$Framework$Internal$Model$Instances$insert, pid, appModel, model.instances)
 			});
 	});
-var $author$project$Framework$Internal$Update$andThen = F4(
+var $tricycle$elm_actor_framework$Framework$Internal$Update$andThen = F4(
 	function (args, maybePid, msg, _v11) {
 		var model = _v11.a;
 		var cmd = _v11.b;
@@ -14227,9 +14250,9 @@ var $author$project$Framework$Internal$Update$andThen = F4(
 						_List_fromArray(
 							[cmd])),
 					$elm$core$Platform$Cmd$batch)),
-			A4($author$project$Framework$Internal$Update$update, args, maybePid, msg, model));
+			A4($tricycle$elm_actor_framework$Framework$Internal$Update$update, args, maybePid, msg, model));
 	});
-var $author$project$Framework$Internal$Update$update = F4(
+var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
 	function (args, maybePid, msg, model) {
 		update:
 		while (true) {
@@ -14260,12 +14283,12 @@ var $author$project$Framework$Internal$Update$update = F4(
 								var first = _v1.a;
 								var rest = _v1.b;
 								return A4(
-									$author$project$Framework$Internal$Update$andThen,
+									$tricycle$elm_actor_framework$Framework$Internal$Update$andThen,
 									args,
 									maybePid,
-									$author$project$Framework$Internal$Message$Operate(
-										$author$project$Framework$Internal$Message$Batch(rest)),
-									A4($author$project$Framework$Internal$Update$update, args, maybePid, first, model));
+									$tricycle$elm_actor_framework$Framework$Internal$Message$Operate(
+										$tricycle$elm_actor_framework$Framework$Internal$Message$Batch(rest)),
+									A4($tricycle$elm_actor_framework$Framework$Internal$Update$update, args, maybePid, first, model));
 							}
 						case 'Command':
 							var cmd = msg.a.a;
@@ -14275,32 +14298,32 @@ var $author$project$Framework$Internal$Update$update = F4(
 							var address = _v2.a;
 							var msgForPid = _v2.b;
 							return function (msg_) {
-								return A4($author$project$Framework$Internal$Update$update, args, maybePid, msg_, model);
+								return A4($tricycle$elm_actor_framework$Framework$Internal$Update$update, args, maybePid, msg_, model);
 							}(
 								A3(
 									$elm$core$Basics$composeL,
-									$author$project$Framework$Internal$Message$Operate,
-									$author$project$Framework$Internal$Message$Batch,
+									$tricycle$elm_actor_framework$Framework$Internal$Message$Operate,
+									$tricycle$elm_actor_framework$Framework$Internal$Message$Batch,
 									A2(
 										$elm$core$List$map,
 										function (pid_) {
-											return $author$project$Framework$Internal$Message$Operate(
-												A2($author$project$Framework$Internal$Message$ForPid, pid_, msgForPid));
+											return $tricycle$elm_actor_framework$Framework$Internal$Message$Operate(
+												A2($tricycle$elm_actor_framework$Framework$Internal$Message$ForPid, pid_, msgForPid));
 										},
-										A2($author$project$Framework$Internal$Model$getInhabitants, address, model))));
+										A2($tricycle$elm_actor_framework$Framework$Internal$Model$getInhabitants, address, model))));
 						case 'ForPid':
 							var _v3 = msg.a;
 							var pid = _v3.a;
 							var msgForPid = _v3.b;
-							var _v4 = A2($author$project$Framework$Internal$Model$getInstance, pid, model);
+							var _v4 = A2($tricycle$elm_actor_framework$Framework$Internal$Model$getInstance, pid, model);
 							if (_v4.$ === 'Just') {
 								var state = _v4.a;
 								var _v5 = A2(
 									$elm$core$Tuple$mapSecond,
-									$author$project$Framework$Internal$Message$filterNoOp,
+									$tricycle$elm_actor_framework$Framework$Internal$Message$filterNoOp,
 									A2(
 										$elm$core$Tuple$mapFirst,
-										A2($author$project$Framework$Internal$Model$updateInstance, model, pid),
+										A2($tricycle$elm_actor_framework$Framework$Internal$Model$updateInstance, model, pid),
 										A3(
 											$elm$core$List$foldl,
 											F2(
@@ -14310,11 +14333,11 @@ var $author$project$Framework$Internal$Update$update = F4(
 													var instanceUpdate = apply(model_).update;
 													return A2(
 														$elm$core$Tuple$mapSecond,
-														$author$project$Framework$Internal$Helper$List$postpend(msgs_),
+														$tricycle$elm_actor_framework$Framework$Internal$Helper$List$postpend(msgs_),
 														A2(instanceUpdate, appMsg, pid));
 												}),
 											_Utils_Tuple2(state, _List_Nil),
-											$author$project$Framework$Internal$Message$filterAppMsgs(msgForPid))));
+											$tricycle$elm_actor_framework$Framework$Internal$Message$filterAppMsgs(msgForPid))));
 								var updatedModel = _v5.a;
 								var newMsgs = _v5.b;
 								if ($elm$core$List$isEmpty(newMsgs)) {
@@ -14322,7 +14345,7 @@ var $author$project$Framework$Internal$Update$update = F4(
 								} else {
 									var $temp$args = args,
 										$temp$maybePid = maybePid,
-										$temp$msg = $author$project$Framework$Internal$Message$batch(newMsgs),
+										$temp$msg = $tricycle$elm_actor_framework$Framework$Internal$Message$batch(newMsgs),
 										$temp$model = updatedModel;
 									args = $temp$args;
 									maybePid = $temp$maybePid;
@@ -14338,11 +14361,11 @@ var $author$project$Framework$Internal$Update$update = F4(
 							var flags = _v7.a;
 							var actorName = _v7.b;
 							var callback = _v7.c;
-							var spawnedBy = A2($elm$core$Maybe$withDefault, $author$project$Framework$Internal$Pid$system, maybePid);
-							var _v8 = A5($author$project$Framework$Internal$Model$spawnInstance, factory, spawnedBy, actorName, flags, model);
+							var spawnedBy = A2($elm$core$Maybe$withDefault, $tricycle$elm_actor_framework$Framework$Internal$Pid$system, maybePid);
+							var _v8 = A5($tricycle$elm_actor_framework$Framework$Internal$Model$spawnInstance, factory, spawnedBy, actorName, flags, model);
 							var updatedModel = _v8.a;
 							var newMsg = _v8.b;
-							var newMsgs = $author$project$Framework$Internal$Message$filterNoOp(
+							var newMsgs = $tricycle$elm_actor_framework$Framework$Internal$Message$filterNoOp(
 								_List_fromArray(
 									[
 										newMsg,
@@ -14353,7 +14376,7 @@ var $author$project$Framework$Internal$Update$update = F4(
 							} else {
 								var $temp$args = args,
 									$temp$maybePid = maybePid,
-									$temp$msg = $author$project$Framework$Internal$Message$batch(newMsgs),
+									$temp$msg = $tricycle$elm_actor_framework$Framework$Internal$Message$batch(newMsgs),
 									$temp$model = updatedModel;
 								args = $temp$args;
 								maybePid = $temp$maybePid;
@@ -14364,36 +14387,36 @@ var $author$project$Framework$Internal$Update$update = F4(
 						case 'StopProcess':
 							var pid = msg.a.a;
 							return _Utils_Tuple2(
-								A2($author$project$Framework$Internal$Model$removePid, pid, model),
+								A2($tricycle$elm_actor_framework$Framework$Internal$Model$removePid, pid, model),
 								$elm$core$Platform$Cmd$none);
 						case 'AddToView':
 							var pid = msg.a.a;
 							return _Utils_Tuple2(
-								A2($author$project$Framework$Internal$Model$addToView, pid, model),
+								A2($tricycle$elm_actor_framework$Framework$Internal$Model$addToView, pid, model),
 								$elm$core$Platform$Cmd$none);
 						case 'RemoveFromView':
 							var pid = msg.a.a;
 							return _Utils_Tuple2(
-								A2($author$project$Framework$Internal$Model$removeFromView, pid, model),
+								A2($tricycle$elm_actor_framework$Framework$Internal$Model$removeFromView, pid, model),
 								$elm$core$Platform$Cmd$none);
 						case 'PopulateAddress':
 							var _v9 = msg.a;
 							var address = _v9.a;
 							var pid = _v9.b;
 							return _Utils_Tuple2(
-								A3($author$project$Framework$Internal$Model$populateAddress, address, pid, model),
+								A3($tricycle$elm_actor_framework$Framework$Internal$Model$populateAddress, address, pid, model),
 								$elm$core$Platform$Cmd$none);
 						case 'RemoveFromAddress':
 							var _v10 = msg.a;
 							var address = _v10.a;
 							var pid = _v10.b;
 							return _Utils_Tuple2(
-								A3($author$project$Framework$Internal$Model$removeFromAddress, address, pid, model),
+								A3($tricycle$elm_actor_framework$Framework$Internal$Model$removeFromAddress, address, pid, model),
 								$elm$core$Platform$Cmd$none);
 						default:
 							var title = msg.a.a;
 							return _Utils_Tuple2(
-								A2($author$project$Framework$Internal$Model$updateDocumentTitle, title, model),
+								A2($tricycle$elm_actor_framework$Framework$Internal$Model$updateDocumentTitle, title, model),
 								$elm$core$Platform$Cmd$none);
 					}
 				default:
@@ -14401,7 +14424,7 @@ var $author$project$Framework$Internal$Update$update = F4(
 			}
 		}
 	});
-var $author$project$Framework$Browser$element = function (_v0) {
+var $tricycle$elm_actor_framework$Framework$Browser$element = function (_v0) {
 	var init = _v0.init;
 	var factory = _v0.factory;
 	var apply = _v0.apply;
@@ -14413,14 +14436,14 @@ var $author$project$Framework$Browser$element = function (_v0) {
 				$elm$core$Basics$composeR,
 				init,
 				function (msg) {
-					return A4($author$project$Framework$Internal$Update$update, updateArgs, $elm$core$Maybe$Nothing, msg, $author$project$Framework$Internal$Model$empty);
+					return A4($tricycle$elm_actor_framework$Framework$Internal$Update$update, updateArgs, $elm$core$Maybe$Nothing, msg, $tricycle$elm_actor_framework$Framework$Internal$Model$empty);
 				}),
 			subscriptions: $elm$core$Basics$always($elm$core$Platform$Sub$none),
-			update: A2($author$project$Framework$Internal$Update$update, updateArgs, $elm$core$Maybe$Nothing),
+			update: A2($tricycle$elm_actor_framework$Framework$Internal$Update$update, updateArgs, $elm$core$Maybe$Nothing),
 			view: A2(
 				$elm$core$Basics$composeL,
 				view,
-				$author$project$Framework$Internal$Render$element(apply))
+				$tricycle$elm_actor_framework$Framework$Internal$Render$element(apply))
 		});
 };
 var $author$project$Main$factory = function (actorName) {
@@ -14437,43 +14460,43 @@ var $author$project$Actors$Editor = {$: 'Editor'};
 var $author$project$AppFlags$EditorFlags = function (a) {
 	return {$: 'EditorFlags', a: a};
 };
-var $author$project$Framework$Internal$Message$AddToView = function (a) {
+var $tricycle$elm_actor_framework$Framework$Internal$Message$AddToView = function (a) {
 	return {$: 'AddToView', a: a};
 };
-var $author$project$Framework$Internal$Message$addToView = A2($elm$core$Basics$composeL, $author$project$Framework$Internal$Message$operate, $author$project$Framework$Internal$Message$AddToView);
-var $author$project$Framework$Message$addToView = $author$project$Framework$Internal$Message$addToView;
+var $tricycle$elm_actor_framework$Framework$Internal$Message$addToView = A2($elm$core$Basics$composeL, $tricycle$elm_actor_framework$Framework$Internal$Message$operate, $tricycle$elm_actor_framework$Framework$Internal$Message$AddToView);
+var $tricycle$elm_actor_framework$Framework$Message$addToView = $tricycle$elm_actor_framework$Framework$Internal$Message$addToView;
 var $author$project$Main$defaultTemplate = '\n## A Markdown Example\n\nLorem **ipsum** dolor sit *amet* ...\n\n- [x] list item\n- [ ] more dummy content\n\nRender an actor here!\n\n<counter-component steps="10" value="10" ></counter-component> \n\nAnd another one:\n\n<!COUNTER 100:25 >\n\n   ';
-var $author$project$Framework$Internal$Message$PopulateAddress = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Message$PopulateAddress = F2(
 	function (a, b) {
 		return {$: 'PopulateAddress', a: a, b: b};
 	});
-var $author$project$Framework$Internal$Message$populateAddress = F2(
+var $tricycle$elm_actor_framework$Framework$Internal$Message$populateAddress = F2(
 	function (address, pid) {
-		return $author$project$Framework$Internal$Message$operate(
-			A2($author$project$Framework$Internal$Message$PopulateAddress, address, pid));
+		return $tricycle$elm_actor_framework$Framework$Internal$Message$operate(
+			A2($tricycle$elm_actor_framework$Framework$Internal$Message$PopulateAddress, address, pid));
 	});
-var $author$project$Framework$Message$populateAddress = $author$project$Framework$Internal$Message$populateAddress;
+var $tricycle$elm_actor_framework$Framework$Message$populateAddress = $tricycle$elm_actor_framework$Framework$Internal$Message$populateAddress;
 var $author$project$Main$init = function (_v0) {
-	return $author$project$Framework$Message$batch(
+	return $tricycle$elm_actor_framework$Framework$Message$batch(
 		_List_fromArray(
 			[
 				A3(
-				$author$project$Framework$Message$spawn,
+				$tricycle$elm_actor_framework$Framework$Message$spawn,
 				$author$project$AppFlags$LayoutFlags($author$project$Framework$Template$Markdown$blank),
 				$author$project$Actors$Layout,
 				function (pid) {
-					return $author$project$Framework$Message$batch(
+					return $tricycle$elm_actor_framework$Framework$Message$batch(
 						_List_fromArray(
 							[
-								A2($author$project$Framework$Message$populateAddress, $author$project$Address$BaseLayoutAddress, pid),
-								$author$project$Framework$Message$addToView(pid)
+								A2($tricycle$elm_actor_framework$Framework$Message$populateAddress, $author$project$Address$BaseLayoutAddress, pid),
+								$tricycle$elm_actor_framework$Framework$Message$addToView(pid)
 							]));
 				}),
 				A3(
-				$author$project$Framework$Message$spawn,
+				$tricycle$elm_actor_framework$Framework$Message$spawn,
 				$author$project$AppFlags$EditorFlags($author$project$Main$defaultTemplate),
 				$author$project$Actors$Editor,
-				$author$project$Framework$Message$addToView)
+				$tricycle$elm_actor_framework$Framework$Message$addToView)
 			]));
 };
 var $elm$html$Html$Attributes$href = function (url) {
@@ -14516,7 +14539,7 @@ var $author$project$Main$view = function (output) {
 				output)
 			]));
 };
-var $author$project$Main$main = $author$project$Framework$Browser$element(
+var $author$project$Main$main = $tricycle$elm_actor_framework$Framework$Browser$element(
 	{apply: $author$project$Main$apply, factory: $author$project$Main$factory, init: $author$project$Main$init, view: $author$project$Main$view});
 _Platform_export({'Main':{'init':$author$project$Main$main(
 	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));

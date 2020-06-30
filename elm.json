@@ -12,6 +12,7 @@
         "dillonkearns/elm-markdown": "4.0.2 <= v < 5.0.0",
         "elm/core": "1.0.0 <= v < 2.0.0",
         "elm/parser": "1.1.0 <= v < 2.0.0",
+        "tricycle/elm-actor-framework-template": "1.0.0 <= v < 2.0.0",
         "truqu/elm-md5": "1.1.0 <= v < 2.0.0"
     },
     "test-dependencies": {

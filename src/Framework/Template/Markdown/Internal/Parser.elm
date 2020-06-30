@@ -56,12 +56,13 @@ parserBlockToTemplateNode components block =
         Block.Paragraph children ->
             parserBlockParagraphToTemplateNode components children
 
-        Block.Table ->
+        Block.Table _ _ ->
             -- @todo
             Nothing
 
         Block.CodeBlock { body, language } ->
             parserBlockCodeblockToTemplateNode body language
+                |> Just
 
         Block.ThematicBreak ->
             Nothing

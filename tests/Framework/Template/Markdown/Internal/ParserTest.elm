@@ -44,20 +44,27 @@ test_parse =
                             ]
 
                     output =
-                        [ Element "span"
-                            [ ( "class", "welcome" ) ]
-                            [ Text "Hello World"
-                            ]
-                        , ActorElement "someActor"
-                            "some-actor"
-                            "b3c97430cb9046cd8613e305af9b3d93"
-                            [ ( "class", "ClassName" )
-                            , ( "data-foo", "bar" )
-                            ]
+                        [ Element "h2" [] [ Text "Hello World" ]
+                        , Element "p" [] [ Text "Some random text" ]
+                        , Actor
+                            (ActorElement "someActor"
+                                "some-actor"
+                                "aa92325a8f7c35213d56060abd68f97b"
+                                [ ( "class", "ClassName" )
+                                ]
+                                []
+                            )
+                        , Element "ul"
                             []
-                            |> Actor
+                            [ Element "li" [] [ Text "a list item" ]
+                            , Element "li"
+                                []
+                                [ Element "input" [ ( "type", "checkbox" ), ( "checked", "checked" ) ] []
+                                , Text "ticked list item"
+                                ]
+                            ]
                         ]
-                            |> HtmlTemplate.fromNodes
+                            |> MarkdownTemplate.fromNodes
                 in
                 Expect.equal (Parser.parse components input)
                     (Ok output)
