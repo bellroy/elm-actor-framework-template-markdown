@@ -35,11 +35,11 @@ template =
     """
 ## A Markdown Example
 
-Lorem ipsum dolor sit amet ...
+Lorem **ipsum** dolor sit *amet* ...
 
 - [x] list item
 - [ ] more dummy content
- 
+
 Render an actor here!
 
 <counter-component steps="10" value="10" ></counter-component> 
