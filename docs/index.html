@@ -12079,6 +12079,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockCodeb
 					$tricycle$elm_actor_framework_template$Framework$Template$Text(body)
 				]));
 	});
+var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockThematicBreakToTemplateNode = A3($tricycle$elm_actor_framework_template$Framework$Template$Element, 'hr', _List_Nil, _List_Nil);
 var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toActor = function (_v0) {
 	var actor = _v0.a.actor;
 	return actor;
@@ -12180,18 +12181,22 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlin
 					A3(
 						$tricycle$elm_actor_framework_template$Framework$Template$Element,
 						'a',
-						_List_fromArray(
-							[
-								_Utils_Tuple2('href', href)
-							]),
 						A2(
-							$elm$core$List$cons,
-							$tricycle$elm_actor_framework_template$Framework$Template$Text(
-								A2($elm$core$Maybe$withDefault, href, maybeTitle)),
-							A2(
-								$elm$core$List$filterMap,
-								$author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlineToTemplateNode(components),
-								children))));
+							$elm$core$List$filterMap,
+							$elm$core$Basics$identity,
+							_List_fromArray(
+								[
+									$elm$core$Maybe$Just(
+									_Utils_Tuple2('href', href)),
+									A2(
+									$elm$core$Maybe$map,
+									$elm$core$Tuple$pair('title'),
+									maybeTitle)
+								])),
+						A2(
+							$elm$core$List$filterMap,
+							$author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlineToTemplateNode(components),
+							children)));
 			case 'Image':
 				var src = inline.a;
 				var maybeTitle = inline.b;
@@ -12267,7 +12272,8 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockListI
 							'input',
 							_List_fromArray(
 								[
-									_Utils_Tuple2('type', 'checkbox')
+									_Utils_Tuple2('type', 'checkbox'),
+									_Utils_Tuple2('disabled', 'true')
 								]),
 							_List_Nil));
 				default:
@@ -12278,6 +12284,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockListI
 							_List_fromArray(
 								[
 									_Utils_Tuple2('type', 'checkbox'),
+									_Utils_Tuple2('disabled', 'true'),
 									_Utils_Tuple2('checked', 'checked')
 								]),
 							_List_Nil));
@@ -12288,6 +12295,24 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockListI
 			$elm$core$Basics$identity,
 			A2($elm$core$List$cons, input, parsedChildren));
 		return A3($tricycle$elm_actor_framework_template$Framework$Template$Element, 'li', _List_Nil, filteredChildren);
+	});
+var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockOrderedListToTemplateNode = F2(
+	function (components, startIndex) {
+		var attributes = (startIndex !== 1) ? _List_fromArray(
+			[
+				_Utils_Tuple2(
+				'start',
+				$elm$core$String$fromInt(startIndex))
+			]) : _List_Nil;
+		return A2(
+			$elm$core$Basics$composeR,
+			$elm$core$List$map(
+				A2(
+					$elm$core$Basics$composeR,
+					$elm$core$List$filterMap(
+						$author$project$Framework$Template$Markdown$Internal$Parser$parserBlockInlineToTemplateNode(components)),
+					A2($tricycle$elm_actor_framework_template$Framework$Template$Element, 'li', _List_Nil))),
+			A2($tricycle$elm_actor_framework_template$Framework$Template$Element, 'ol', attributes));
 	});
 var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockParagraphToTemplateNode = function (components) {
 	return A2(
@@ -12313,9 +12338,10 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockToTem
 				var listItems = block.a;
 				return A2($author$project$Framework$Template$Markdown$Internal$Parser$parserBlockUnorderedListToTemplateNode, components, listItems);
 			case 'OrderedList':
-				var index = block.a;
+				var startIndex = block.a;
 				var listOfListOfInline = block.b;
-				return $elm$core$Maybe$Nothing;
+				return $elm$core$Maybe$Just(
+					A3($author$project$Framework$Template$Markdown$Internal$Parser$parserBlockOrderedListToTemplateNode, components, startIndex, listOfListOfInline));
 			case 'BlockQuote':
 				var children = block.a;
 				return A2($author$project$Framework$Template$Markdown$Internal$Parser$parserBlockQuoteToTemplateNode, components, children);
@@ -12334,7 +12360,7 @@ var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockToTem
 				return $elm$core$Maybe$Just(
 					A2($author$project$Framework$Template$Markdown$Internal$Parser$parserBlockCodeblockToTemplateNode, body, language));
 			default:
-				return $elm$core$Maybe$Nothing;
+				return $elm$core$Maybe$Just($author$project$Framework$Template$Markdown$Internal$Parser$parserBlockThematicBreakToTemplateNode);
 		}
 	});
 var $author$project$Framework$Template$Markdown$Internal$Parser$parserBlockUnorderedListToTemplateNode = function (components) {
@@ -14465,7 +14491,7 @@ var $tricycle$elm_actor_framework$Framework$Internal$Message$AddToView = functio
 };
 var $tricycle$elm_actor_framework$Framework$Internal$Message$addToView = A2($elm$core$Basics$composeL, $tricycle$elm_actor_framework$Framework$Internal$Message$operate, $tricycle$elm_actor_framework$Framework$Internal$Message$AddToView);
 var $tricycle$elm_actor_framework$Framework$Message$addToView = $tricycle$elm_actor_framework$Framework$Internal$Message$addToView;
-var $author$project$Main$defaultTemplate = '\n## A Markdown Example\n\nLorem **ipsum** dolor sit *amet* ...\n\n- [x] list item\n- [ ] more dummy content\n\nRender an actor here!\n\n<counter-component steps="10" value="10" ></counter-component> \n\nAnd another one:\n\n<!COUNTER 100:25 >\n\n   ';
+var $author$project$Main$defaultTemplate = '\n## A Markdown Example\n\nLorem **ipsum** dolor sit *amet* ...\n\n- [x] list item\n- [ ] more dummy content\n\n---\n\nRender an actor here!\n\n<counter-component steps="10" value="10" ></counter-component> \n\nAnd another one:\n\n<!COUNTER 100:25 >\n\n   ';
 var $tricycle$elm_actor_framework$Framework$Internal$Message$PopulateAddress = F2(
 	function (a, b) {
 		return {$: 'PopulateAddress', a: a, b: b};
