@@ -21,12 +21,24 @@ input =
     """
 ## Hello World
 
-Some random text
+Some **random** _text_
+
+---
 
 <some-actor></some-actor>
 
+[link](https://www.example.com)
+
 - a list item
 - [x] ticked list item
+
+3. numbered list item
+4. another numbered list item
+
+```elm
+example: String
+example = "Code Example"
+```
 
 """
 
@@ -45,7 +57,14 @@ test_parse =
 
                     output =
                         [ Element "h2" [] [ Text "Hello World" ]
-                        , Element "p" [] [ Text "Some random text" ]
+                        , Element "p"
+                            []
+                            [ Text "Some "
+                            , Element "strong" [] [ Text "random" ]
+                            , Text " "
+                            , Element "em" [] [ Text "text" ]
+                            ]
+                        , Element "hr" [] []
                         , Actor
                             (ActorElement "someActor"
                                 "some-actor"
@@ -54,14 +73,35 @@ test_parse =
                                 ]
                                 []
                             )
+                        , Element "p"
+                            []
+                            [ Element "a"
+                                [ ( "href", "https://www.example.com" ) ]
+                                [ Text "link"
+                                ]
+                            ]
                         , Element "ul"
                             []
                             [ Element "li" [] [ Text "a list item" ]
                             , Element "li"
                                 []
-                                [ Element "input" [ ( "type", "checkbox" ), ( "checked", "checked" ) ] []
+                                [ Element "input"
+                                    [ ( "type", "checkbox" )
+                                    , ( "disabled", "true" )
+                                    , ( "checked", "checked" )
+                                    ]
+                                    []
                                 , Text "ticked list item"
                                 ]
+                            ]
+                        , Element "ol"
+                            [ ( "start", "3" ) ]
+                            [ Element "li" [] [ Text "numbered list item" ]
+                            , Element "li" [] [ Text "another numbered list item" ]
+                            ]
+                        , Element "code"
+                            [ ( "data-language", "elm" ) ]
+                            [ Text "example: String\nexample = \"Code Example\""
                             ]
                         ]
                             |> MarkdownTemplate.fromNodes

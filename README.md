@@ -1,5 +1,7 @@
 # Elm Actor Framework - Template - Markdown
 
+![Build Status](https://github.com/tricycle/elm-actor-framework-template-markdown/workflows/Continuous%20Integration/badge.svg) [![Elm package](https://img.shields.io/elm-package/v/tricycle/elm-actor-framework-template-markdown.svg)](https://package.elm-lang.org/packages/dillonkearns/elm-markdown/latest/)
+
 This package is as an extension of the [Elm Actor Framework](https://github.com/tricycle/elm-actor-framework) [Package](https://package.elm-lang.org/packages/tricycle/elm-actor-framework/latest).
 
 [Demo](https://tricycle.github.io/elm-actor-framework-template-markdown)
@@ -40,6 +42,8 @@ Lorem **ipsum** dolor sit *amet* ...
 - [x] list item
 - [ ] more dummy content
 
+---
+
 Render an actor here!
 
 <counter-component steps="10" value="10" ></counter-component> 
@@ -59,7 +63,6 @@ markdownTemplate =
 
 ## In progress
 
-- [ ] ordered list
 - [ ] tables
 
 ## Templates

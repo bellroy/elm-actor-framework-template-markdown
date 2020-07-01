@@ -43,9 +43,8 @@ parserBlockToTemplateNode components block =
         Block.UnorderedList listItems ->
             parserBlockUnorderedListToTemplateNode components listItems
 
-        Block.OrderedList index listOfListOfInline ->
-            -- @todo
-            Nothing
+        Block.OrderedList startIndex listOfListOfInline ->
+            Just <| parserBlockOrderedListToTemplateNode components startIndex listOfListOfInline
 
         Block.BlockQuote children ->
             parserBlockQuoteToTemplateNode components children
@@ -61,11 +60,36 @@ parserBlockToTemplateNode components block =
             Nothing
 
         Block.CodeBlock { body, language } ->
-            parserBlockCodeblockToTemplateNode body language
-                |> Just
+            Just <| parserBlockCodeblockToTemplateNode body language
 
         Block.ThematicBreak ->
-            Nothing
+            Just <| parserBlockThematicBreakToTemplateNode
+
+
+parserBlockOrderedListToTemplateNode :
+    Components appActors
+    -> Int
+    -> List (List Block.Inline)
+    -> Template.Node appActors
+parserBlockOrderedListToTemplateNode components startIndex =
+    let
+        attributes =
+            if startIndex /= 1 then
+                [ ( "start", String.fromInt startIndex ) ]
+
+            else
+                []
+    in
+    List.map
+        (List.filterMap (parserBlockInlineToTemplateNode components)
+            >> Template.Element "li" []
+        )
+        >> Template.Element "ol" attributes
+
+
+parserBlockThematicBreakToTemplateNode : Template.Node appActors
+parserBlockThematicBreakToTemplateNode =
+    Template.Element "hr" [] []
 
 
 parserBlockCodeblockToTemplateNode :
@@ -137,10 +161,21 @@ parserBlockListItemToTemplateNode components (Block.ListItem task children) =
                     Nothing
 
                 Block.IncompleteTask ->
-                    Just <| Template.Element "input" [ ( "type", "checkbox" ) ] []
+                    Just <|
+                        Template.Element "input"
+                            [ ( "type", "checkbox" )
+                            , ( "disabled", "true" )
+                            ]
+                            []
 
                 Block.CompletedTask ->
-                    Just <| Template.Element "input" [ ( "type", "checkbox" ), ( "checked", "checked" ) ] []
+                    Just <|
+                        Template.Element "input"
+                            [ ( "type", "checkbox" )
+                            , ( "disabled", "true" )
+                            , ( "checked", "checked" )
+                            ]
+                            []
 
         parsedChildren =
             List.map (parserBlockInlineToTemplateNode components) children
@@ -162,8 +197,12 @@ parserBlockInlineToTemplateNode components inline =
 
         Block.Link href maybeTitle children ->
             List.filterMap (parserBlockInlineToTemplateNode components) children
-                |> (::) (Template.Text (Maybe.withDefault href maybeTitle))
-                |> Template.Element "a" [ ( "href", href ) ]
+                |> Template.Element "a"
+                    ([ Just ( "href", href )
+                     , Maybe.map (Tuple.pair "title") maybeTitle
+                     ]
+                        |> List.filterMap identity
+                    )
                 |> Just
 
         Block.Image src maybeTitle _ ->
